@@ -9,6 +9,8 @@ import business.model.PasswordValidationException;
 import business.model.StorageException;
 import infra.StorageWriter;
 
+/**TESTEEE**/
+
 public class UserControl {
     
     private static ArrayList<User> users = new ArrayList<User>();
