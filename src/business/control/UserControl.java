@@ -9,7 +9,6 @@ import business.model.PasswordValidationException;
 import business.model.StorageException;
 import infra.StorageWriter;
 
-/**TESTEEE**/
 
 public class UserControl {
     
