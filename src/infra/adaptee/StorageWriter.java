@@ -1,6 +1,7 @@
-package infra;
+package infra.adaptee;
 
-import business.model.StorageException;
+import infra.Adpter.Writer;
+import business.model.exceptions.StorageException;
 import business.model.User;
 
 import java.io.FileWriter;
@@ -12,9 +13,17 @@ import java.util.logging.Logger;
 /**Esta classe faz um Adapter para FileWriter**/
 public class StorageWriter implements Writer{
     
-    private FileWriter fout = null;
+    private static FileWriter fout = null;
+    private static StorageWriter sw = null;
     
-    public StorageWriter(){}
+    private StorageWriter(){}
+    
+    public static synchronized StorageWriter get_instance(){
+        if(sw == null){
+            sw = new StorageWriter();
+        }
+        return sw;
+    }
     
     public void save(String path, User user){
         try {

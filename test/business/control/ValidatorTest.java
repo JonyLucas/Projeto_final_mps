@@ -5,8 +5,8 @@
  */
 package business.control;
 
-import business.model.LoginValidationException; 
-import business.model.PasswordValidationException;
+import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.PasswordValidationException;
 
 import org.junit.After;
 import org.junit.AfterClass;

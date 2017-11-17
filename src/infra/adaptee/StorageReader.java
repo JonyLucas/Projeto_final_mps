@@ -1,7 +1,8 @@
-package infra;
+package infra.adaptee;
 
+import infra.Adpter.Reader;
 import business.control.UserControl;
-import business.model.StorageException;
+import business.model.exceptions.StorageException;
 import business.model.User;
 
 import java.io.FileReader;
@@ -15,7 +16,18 @@ import javax.swing.JOptionPane;
 
 /**Esta classe faz um Adapter para BufferedReader**/
 public class StorageReader implements Reader{
-    private FileReader fin;
+    private static FileReader fin;
+    private static StorageReader sr = null;
+    
+    private StorageReader(){}
+    
+    public static synchronized StorageReader get_instance(){
+        if(sr == null){
+            sr = new StorageReader();
+        }
+        
+        return sr;
+    }
     
     public void load(String path){
         BufferedReader bf;

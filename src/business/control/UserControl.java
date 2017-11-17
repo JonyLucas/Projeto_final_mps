@@ -3,11 +3,9 @@ package business.control;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import business.model.User;
-import business.model.UserNotExistException;
-import business.model.LoginValidationException;
-import business.model.PasswordValidationException;
-import business.model.StorageException;
-import infra.StorageWriter;
+import business.model.exceptions.UserNotExistException;
+import business.model.exceptions.LoginValidationException;
+import business.model.exceptions.PasswordValidationException;
 
 
 public class UserControl {
@@ -83,20 +81,6 @@ public class UserControl {
         JOptionPane.showMessageDialog(null, list);
         
         return list;
-    }
-    
-    public static void save_storage(String path, boolean overwrite){
-        
-        try{
-            if(overwrite)
-            StorageWriter.clear_file(path);
-        
-        for(User user : users){
-            StorageWriter.save(path, user);
-        }
-        }catch(StorageException se){
-            JOptionPane.showMessageDialog(null, se.getMessage());
-        }
     }
     
     /**Metodos usados no teste unitario**/

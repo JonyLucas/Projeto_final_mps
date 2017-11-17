@@ -1,5 +1,7 @@
 package business.model;
 
+import business.model.exceptions.PasswordValidationException;
+import business.model.exceptions.LoginValidationException;
 import business.control.Validator;
 
 public class User {

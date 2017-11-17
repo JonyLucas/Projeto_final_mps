@@ -1,8 +1,8 @@
 package view;
 
 import business.control.UserControl;
-import business.model.UserNotExistException;
-import infra.StorageReader;
+import business.model.exceptions.UserNotExistException;
+import infra.adaptee.StorageReader;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
