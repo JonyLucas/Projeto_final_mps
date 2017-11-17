@@ -5,16 +5,10 @@
  */
 package business.model;
 
-import business.model.interfaces.Entity;
-
 /**
  *
  * @author Joao
  */
-public class Product implements Entity{
+public class Games extends Product{
     
-    //Modificar
-    public String get_info(){
-        return null;
-    }
 }

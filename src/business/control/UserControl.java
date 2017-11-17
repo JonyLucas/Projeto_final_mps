@@ -43,34 +43,8 @@ public class UserControl {
         
     }
     
-    public static String list(String login){
-        String list = "";
-        
-        for(User user : users){
-            if(user.get_login().equals(login)){
-                list += user.get_info();
-            }
-        }
-        
-        JOptionPane.showMessageDialog(null, list);
-        
-        return list;
-        
-    }
-    
-    public static String list_all(){
-        String list = "";
-        
-        for(User user : users){
-            list += user.get_info();
-        }
-        
-        JOptionPane.showMessageDialog(null, list);
-        
-        return list;
-    }
-    
-    /**Metodos usados no teste unitario**/
+    /**Metodos usados no teste unitario
+     * @return o**/
     public static ArrayList<User> get_array_list(){
     	return users;
     }

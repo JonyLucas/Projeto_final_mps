@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model;
-
-import business.model.interfaces.Entity;
+package business.control.facade;
 
 /**
  *
  * @author Joao
  */
-public class Product implements Entity{
+public class EntityFacade {
     
-    //Modificar
-    public String get_info(){
-        return null;
-    }
 }

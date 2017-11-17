@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra;
+package business.control.facade;
 
 import business.control.UserControl;
 import business.model.User;
