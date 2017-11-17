@@ -182,7 +182,6 @@ public class UserForm extends javax.swing.JPanel {
     private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
         // TODO add your handling code here:
         String path = TextFieldFile.getText();
-        StorageReader.load(path);
     }//GEN-LAST:event_LoadButtonActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed

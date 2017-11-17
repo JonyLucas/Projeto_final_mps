@@ -88,13 +88,11 @@ public class OverwriteFrame extends javax.swing.JFrame {
 
     private void NoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButtonActionPerformed
         // TODO add your handling code here:
-        UserControl.save_storage(path, false);
         this.dispose();
     }//GEN-LAST:event_NoButtonActionPerformed
 
     private void YesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesButtonActionPerformed
         // TODO add your handling code here:
-        UserControl.save_storage(path, true);
         this.dispose();
     }//GEN-LAST:event_YesButtonActionPerformed
 
