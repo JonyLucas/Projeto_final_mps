@@ -7,7 +7,8 @@ package business.control;
 
 import infra.Adpter.Reader;
 import infra.Adpter.Writer;
-
+import infra.factory.StorageFactoryReader;
+import infra.factory.StorageFactoryWriter;
 
 public class FacadeClass {
     Reader reader;
@@ -15,7 +16,7 @@ public class FacadeClass {
     
     public FacadeClass(){}
     
-    public void storages(){
+    public void load_storage(String path){
         
     }
 }
