@@ -13,7 +13,7 @@ import infra.adaptee.StorageReader;
  * @author Joao
  */
 public class StorageFactoryReader {
-    public Reader selectStorage(String type){
+    public static Reader selectStorage(String type){
         Reader reader;
         if(type.equals("file")){
             reader = StorageReader.get_instance();

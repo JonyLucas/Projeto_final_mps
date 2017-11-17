@@ -11,6 +11,6 @@ package business.model.exceptions;
  */
 public class StorageException extends RuntimeException{
     public StorageException(){
-        super("Ocorreu erro, meu amigo, tente novamente"); //Imprime mensagem amigavel ao usuario
+        super("Ocorreu um erro na tentativa de acessar a forma de persistencia"); //Imprime mensagem amigavel ao usuario
     }
 }

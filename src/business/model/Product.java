@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.Adpter;
-
-import business.model.User;
-import java.util.List;
+package business.model;
 
 /**
  *
  * @author Joao
  */
-public interface Reader {
-    public abstract List<User> load(String path);
+public class Product {
+    
 }

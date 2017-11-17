@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -29,7 +30,7 @@ public class StorageReader implements Reader{
         return sr;
     }
     
-    public void load(String path){
+    public List<User> load(String path){
         BufferedReader bf;
         String line, login, password;
         String[] tokens;
@@ -46,9 +47,7 @@ public class StorageReader implements Reader{
                 login = tokens[0];
                 password = tokens[1];
                 users.add(new User(login, password));
-            }
-            UserControl.add_user(users);
-            
+            }            
             bf.close();
             fin.close();
             
@@ -56,6 +55,8 @@ public class StorageReader implements Reader{
             JOptionPane.showMessageDialog(null, "Arquivo nao encontrado");
         } catch (IOException ex) {
             throw new StorageException();
-        }
+        }        
+        return users;
+        
     }
 }

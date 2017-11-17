@@ -13,7 +13,7 @@ import infra.Adpter.Writer;
  * @author Joao
  */
 public class StorageFactoryWriter {
-    public Writer selectStorage(String type){
+    public static Writer selectStorage(String type){
         Writer writer;
         if(type.equals("file")){
             writer = StorageWriter.get_instance();

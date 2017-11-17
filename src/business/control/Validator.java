@@ -28,7 +28,7 @@ public class Validator {
         if(!password.matches("[\\w\\d]*\\d[\\w\\d]*\\d[\\w\\d]*"))
             throw new PasswordValidationException("Password invalido: deveria conter pelo menos 2 digitos");
         if(!password.matches("[\\w\\d]*[a-zA-Z][\\w\\d]*"))
-            throw new PasswordValidationException("Password inv�lido: deveria conter pelo menos 1 letra");
+            throw new PasswordValidationException("Password invalido: deveria conter pelo menos 1 letra");
         
         return true; //Usado para o teste unitario
     }

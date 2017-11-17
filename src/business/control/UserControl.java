@@ -24,19 +24,6 @@ public class UserControl {
 
     }
     
-    public static void add_user(ArrayList<User> loaded_users){
-        try{
-            for(User user : loaded_users){
-                Validator.validate_login(user.get_login());
-                Validator.validate_password(user.get_password());
-                users.add(user);
-            }
-        }catch(LoginValidationException | PasswordValidationException lve){
-            JOptionPane.showMessageDialog(null, lve.getMessage());
-        }
-
-    }
-    
     public static void remove_user(String login) throws UserNotExistException{
         boolean exist = false;
         int size = users.size();
