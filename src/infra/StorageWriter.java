@@ -14,16 +14,11 @@ public class StorageWriter implements Writer{
     
     private FileWriter fout = null;
     
-    public StorageWriter(String path){
-        try {
-            fout = new FileWriter(path);
-        } catch (IOException ex) {
-            System.out.println("Erro de entrada");
-        }
-    }
+    public StorageWriter(){}
     
-    public void save(User user){
+    public void save(String path, User user){
         try {
+            fout = new FileWriter(path, true);
             fout.write(user.get_login() + ",");
             fout.write(user.get_password() + "\n");
             fout.close();
@@ -33,9 +28,9 @@ public class StorageWriter implements Writer{
         }
     }
     
-    public void clear_file(){
+    public void clear_file(String path){
         try {
-            
+            fout = new FileWriter(path);
             fout.write("");
             fout.close();
         } catch (IOException ex) {

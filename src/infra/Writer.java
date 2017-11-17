@@ -12,6 +12,6 @@ import business.model.User;
  * @author Joao
  */
 public interface Writer {
-    public void save(User user);
-    public void clear_file();
+    public void save(String path, User user);
+    public void clear_file(String path);
 }
