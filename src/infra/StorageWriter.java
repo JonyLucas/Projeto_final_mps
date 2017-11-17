@@ -9,13 +9,21 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StorageWriter {
+/**Esta classe faz um Adapter para FileWriter**/
+public class StorageWriter implements Writer{
     
-    private static FileWriter fout;    
+    private FileWriter fout = null;
     
-    public static void save(String path, User user){
+    public StorageWriter(String path){
         try {
-            fout = new FileWriter(path, true);
+            fout = new FileWriter(path);
+        } catch (IOException ex) {
+            System.out.println("Erro de entrada");
+        }
+    }
+    
+    public void save(User user){
+        try {
             fout.write(user.get_login() + ",");
             fout.write(user.get_password() + "\n");
             fout.close();
@@ -25,9 +33,9 @@ public class StorageWriter {
         }
     }
     
-    public static void clear_file(String path){
+    public void clear_file(){
         try {
-            fout = new FileWriter(path);
+            
             fout.write("");
             fout.close();
         } catch (IOException ex) {

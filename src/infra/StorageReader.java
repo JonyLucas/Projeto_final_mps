@@ -13,10 +13,11 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class StorageReader {
-    private static FileReader fin;
+/**Esta classe faz um Adapter para BufferedReader**/
+public class StorageReader implements Reader{
+    private FileReader fin;
     
-    public static void load(String path){
+    public void load(String path){
         BufferedReader bf;
         String line, login, password;
         String[] tokens;
