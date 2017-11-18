@@ -17,6 +17,8 @@ public abstract class Product implements Entity{
     public float preco;
     public String categoria;
     public String avaliacoes;
+    public String genero;
+    public int ano;
     
     //Modificar
     public String get_info(){
@@ -39,6 +41,11 @@ public abstract class Product implements Entity{
     public abstract float get_preco();
     public abstract String get_categoria();
     public abstract String get_avaliacoes();
+    public abstract String get_genero();
+    public abstract void set_genero(String genero);
+    public abstract int get_ano();
+    public abstract void set_ano(int ano);
+    
     
     public void set_titulo(String titulo){
         this.titulo = titulo;
@@ -54,6 +61,8 @@ public abstract class Product implements Entity{
     
     public void set_avaliacoes(String avaliacoes){
         this.avaliacoes = avaliacoes;
-    }    
+    }
+
+    
     
 }
