@@ -2,7 +2,7 @@ package infra.adaptee;
 
 import infra.Adpter.Writer;
 import business.model.exceptions.StorageException;
-import business.model.User;
+import business.model.users.User;
 
 import java.io.FileWriter;
 import java.io.IOException;

@@ -5,7 +5,7 @@
  */
 package business.control;
 
-import business.model.User;
+import business.model.users.User;
 import java.util.List;
 import javax.swing.JOptionPane;
 

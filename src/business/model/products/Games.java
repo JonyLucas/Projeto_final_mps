@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model;
+package business.model.products;
 
 /**
  *
  * @author Joao
  */
-public class Music extends Product{
+public class Games extends Product{
     
 }

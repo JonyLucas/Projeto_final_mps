@@ -5,7 +5,7 @@
  */
 package infra.Adpter;
 
-import business.model.User;
+import business.model.users.User;
 import java.util.List;
 
 /**

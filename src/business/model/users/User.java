@@ -1,4 +1,4 @@
-package business.model;
+package business.model.users;
 
 import business.model.exceptions.PasswordValidationException;
 import business.model.exceptions.LoginValidationException;

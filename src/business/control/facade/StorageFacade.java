@@ -6,7 +6,7 @@
 package business.control.facade;
 
 import business.control.UserControl;
-import business.model.User;
+import business.model.users.User;
 import business.model.exceptions.StorageException;
 import infra.Adpter.Reader;
 import infra.Adpter.Writer;

@@ -2,7 +2,7 @@ package business.control;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import business.model.User;
+import business.model.users.User;
 import business.model.exceptions.UserNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;

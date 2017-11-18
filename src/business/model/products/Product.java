@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model;
+package business.model.products;
 
 import business.model.interfaces.Entity;
 
@@ -20,9 +20,12 @@ public abstract class Product implements Entity{
     
     //Modificar
     public String get_info(){
-        String describe;
-        
-        
+        String describe = "Titulo: " + get_titulo() + "\n" +
+                          "Preço: " + get_preco() + "\n" + 
+                          "categoria: " + get_categoria() + "\n" +
+                          "Avaliações: " + get_avaliacoes();
+
+        return describe;
     }
     
      public Product(String titulo, float preco, String categoria, String avaliacoes){
@@ -35,7 +38,7 @@ public abstract class Product implements Entity{
     public abstract String get_titulo();
     public abstract float get_preco();
     public abstract String get_categoria();
-    public abstract String avaliacoes();
+    public abstract String get_avaliacoes();
     
     public void set_titulo(String titulo){
         this.titulo = titulo;
@@ -51,9 +54,6 @@ public abstract class Product implements Entity{
     
     public void set_avaliacoes(String avaliacoes){
         this.avaliacoes = avaliacoes;
-    }
-    
-    
-    
+    }    
     
 }

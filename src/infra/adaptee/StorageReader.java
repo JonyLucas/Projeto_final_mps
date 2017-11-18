@@ -3,7 +3,7 @@ package infra.adaptee;
 import infra.Adpter.Reader;
 import business.control.UserControl;
 import business.model.exceptions.StorageException;
-import business.model.User;
+import business.model.users.User;
 
 import java.io.FileReader;
 import java.io.BufferedReader;

@@ -5,7 +5,7 @@
  */
 package business.control;
 
-import business.model.User;
+import business.model.users.User;
 import business.model.exceptions.UserNotExistException;
 import infra.adaptee.StorageReader;
 import java.util.ArrayList;
