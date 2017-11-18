@@ -11,10 +11,10 @@ package business.model.products;
  */
 public class Games extends Product{
     
-    public String descricao;
-    public String desenvolvedor;
-    public String distribuidora;
-    public String siteOficial;
+    private String descricao;
+    private String desenvolvedor;
+    private String distribuidora;
+    private String siteOficial;
 
     public Games(String titulo, float preco, String categoria, String avaliacoes) {
         super(titulo, preco, categoria, avaliacoes);

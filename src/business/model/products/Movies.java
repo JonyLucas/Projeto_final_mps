@@ -11,10 +11,10 @@ package business.model.products;
  */
 public class Movies extends Product{
 
-    public float duracao;
-    public String diretor;
-    public String estudio;
-    public String sinopse;
+    private float duracao;
+    private String diretor;
+    private String estudio;
+    private String sinopse;
     
     
     public Movies(String titulo, float preco, String categoria, String avaliacoes) {

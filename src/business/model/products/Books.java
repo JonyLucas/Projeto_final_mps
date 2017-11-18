@@ -11,10 +11,10 @@ package business.model.products;
  */
 public class Books extends Product{
     
-    public String[] autores;
-    public String editora;
-    public String edicao;
-    public int numPag;
+    private String[] autores;
+    private String editora;
+    private String edicao;
+    private int numPag;
 
     public Books(String titulo, float preco, String categoria, String avaliacoes) {
         super(titulo, preco, categoria, avaliacoes);

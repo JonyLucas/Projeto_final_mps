@@ -11,9 +11,9 @@ package business.model.products;
  */
 public class Music extends Product{
 
-    public String artista;
-    public String album;
-    public float duracao;
+    private String artista;
+    private String album;
+    private float duracao;
     
     public Music(String titulo, float preco, String categoria, String avaliacoes) {
         super(titulo, preco, categoria, avaliacoes);
