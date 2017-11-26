@@ -5,7 +5,8 @@
  */
 package business.control;
 
-import business.model.users.User;
+
+import business.model.users.UserBuilder;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
 public class DisplayList {
     
     /**Lista os elementos de uma lista**/
-    public static String list(List<User> users, String login){ //Deve-se deixar mais generico
+    public static String list(List<UserBuilder> users, String login){ //Deve-se deixar mais generico
         String list = "";
         
         for(User user : users){
