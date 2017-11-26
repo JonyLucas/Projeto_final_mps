@@ -11,56 +11,54 @@ package business.model.products;
  */
 public class Books extends Product{
     
-    private String[] autores;
-    private String editora;
-    private String edicao;
-    private int numPag;
+    private String author;
+    private String publisher;
+    private String edition;
+    private String genre;
+    private int number_pages;
 
-    public Books(String titulo, float preco, String categoria, String avaliacoes) {
-        super(titulo, preco, categoria, avaliacoes);
+    public Books(String titulo, float preco) {
+        this(titulo, preco, null, "Unknow", "Unknow", "Unknow", 0);
     }
-
-    @Override
-    public String get_titulo() {
-        return this.titulo;
-    }
-
-    @Override
-    public float get_preco() {
-        return this.preco;
-    }
-
-    @Override
-    public String get_categoria() {
-        return this.categoria;
-    }
-
-    @Override
-    public String get_avaliacoes() {
-        return this.avaliacoes;
-    }
-
-    @Override
-    public String get_genero() {
-        return this.genero;
-    }
-
-    @Override
-    public void set_genero(String genero) {
-        this.genero = genero;
-    }
-
-    @Override
-    public int get_ano() {
-        return this.ano;
-    }
-
-    @Override
-    public void set_ano(int ano) {
-        this.ano = ano;
-    }
-
-  
     
+    public Books(String titulo, float preco, String autor, String editora, String edicao, String genre, int num_page) {
+        super(titulo, preco, "Books");
+        this.author = autor;
+        this.publisher =  editora;
+        this.edition = edicao;
+        this.number_pages = num_page;
+        this.genre = genre;
+    }
+    
+    @Override
+    public String get_info(){
+        String describe = super.get_info();
+        describe += "\tAuthor: " + get_author() + "\n";
+        describe += "\tPublisher: " + get_publisher() + "\n";
+        describe += "\tEdition: " + get_edition() + "\n";
+        describe += "\tGenre: " + get_genre() + "\n";
+        describe += "\tNumber of Pages: " + get_number_pages() + "\n";
+        return describe;
+    }
+
+    public String get_author() { return this.author; }
+    
+    public String get_publisher() { return this.publisher; }
+    
+    public String get_edition() { return this.edition; }
+    
+    public String get_genre() { return this.genre; }
+    
+    public int get_number_pages() { return this.number_pages; }
+    
+    
+
+    public void set_publisher(String newPublisher) { this.publisher = newPublisher; }
+    
+    public void set_edition(String newEdition) { this.edition = newEdition; }
+    
+    public void set_genre(String newGenre) { this.genre = newGenre; }
+    
+    public void set_number_pages(int num_page) { this.number_pages = num_page; }
     
 }

@@ -11,53 +11,56 @@ package business.model.products;
  */
 public class Games extends Product{
     
-    private String descricao;
-    private String desenvolvedor;
-    private String distribuidora;
-    private String siteOficial;
+    private String description;
+    private String developer;
+    private String publisher;
+    private String oficialSite;
+    private String genre;
 
-    public Games(String titulo, float preco, String categoria, String avaliacoes) {
-        super(titulo, preco, categoria, avaliacoes);
+    public Games(String titulo, float preco) {
+        this(titulo, preco, "", "Unknow", "Unknow", "Unknow", "");
+    }
+    
+    public Games(String titulo, float preco, String descricao, String desenvolvedor, String publicadora, String genre, String site_oficial){
+        super(titulo, preco, "Games");
+        this.description = descricao;
+        this.developer = desenvolvedor;
+        this.publisher = publicadora;
+        this.oficialSite = site_oficial;
+        this.genre = genre;
     }
     
     @Override
-    public String get_titulo() {
-        return this.titulo;
+    public String get_info(){
+        String describe = super.get_info();
+        describe += "\tDescription: " + get_description() + "\n";
+        describe += "\tDeveloper: " + get_developer() + "\n";
+        describe += "\tPublisher: " + get_publisher() + "\n";
+        describe += "\tGenre: " + get_genre() + "\n";
+        describe += "\tOficial Site: " + get_oficial_site() + "\n";
+        return describe;
     }
     
-    @Override
-    public float get_preco() {
-        return this.preco;
-    }
-
-    @Override
-    public String get_categoria() {
-        return this.categoria;
-    }
-
-    @Override
-    public String get_avaliacoes() {
-        return this.avaliacoes;
-    }
-
-    @Override
-    public String get_genero() {
-        return this.genero;
-    }
-
-    @Override
-    public void set_genero(String genero) {
-        this.genero = genero;
-    }
-
-    @Override
-    public int get_ano() {
-        return this.ano;
-    }
+    public String get_description() { return this.description; }
     
-    @Override
-    public void set_ano(int ano) {
-        this.ano = ano;
-    }
+    public String get_developer() { return this.developer; }
+    
+    public String get_publisher() { return this.publisher; }
+    
+    public String get_oficial_site() { return this.oficialSite; }
+    
+    public String get_genre() { return this.genre; }
+
+    
+    
+    public void set_desciption(String newDescription) { this.description = newDescription; }
+    
+    public void set_developer(String newDeveloper) { this.developer = newDeveloper; }
+    
+    public void set_publisher(String newPublisher) { this.publisher = newPublisher; }
+    
+    public void set_oficial_site(String newSite) { this.oficialSite = newSite; }
+    
+    public void set_genre(String genero) { this.genre = genero; }
 
 }

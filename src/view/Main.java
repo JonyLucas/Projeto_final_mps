@@ -7,7 +7,7 @@ public class Main {
     
     public static void main(String[] args){
         
-        SwingUtilities.invokeLater(new Runnable() {
+        /*SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 UserForm uf = new UserForm();
@@ -18,7 +18,7 @@ public class Main {
                 jf.setVisible(true);
                 
             }
-        });
+        });*/
         
     }
     
