@@ -5,6 +5,7 @@
  */
 package business.model.catalogs;
 
+import business.model.interfaces.ProductCatalog;
 import business.model.products.Music;
 import business.model.products.Product;
 import java.util.ArrayList;
@@ -13,25 +14,39 @@ import java.util.ArrayList;
  *
  * @author Joao
  */
-public class MusicCatalog extends ProductCatalog{
+public class MusicCatalog implements ProductCatalog{
     
-    MusicCatalog music_catalog;
+    private static MusicCatalog music_catalog = null;
+    private static ArrayList<Music> musics_list;
     
     private MusicCatalog(){
-        super.products = new ArrayList<Product>();
+        musics_list = new ArrayList<Music>();
     }
     
-    public void add(Music music){
-        super.products.add(music);
+    /**Padrão Singleton**/
+    public static synchronized MusicCatalog get_instance(){
+        if(music_catalog == null){
+            music_catalog = new MusicCatalog();
+        }
+        return music_catalog;
+    }
+
+    @Override
+    public void add(Product product) {
+        musics_list.add((Music) product);
+        
+    }
+
+    @Override
+    public void remove(Product product) {
+        musics_list.remove((Music) product);
     }
     
-    public void remove(Music music){
-        super.products.remove(music);
-    }
-    
+    @Override
     public void show(){
-        for(Product music : super.products){
-            
+        for(Music music : musics_list){
+            System.out.println(music.get_info());
         }
     }
+
 }
