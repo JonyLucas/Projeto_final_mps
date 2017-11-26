@@ -11,7 +11,7 @@ public class Main {
             @Override
             public void run() {
                 UserForm uf = new UserForm();
-                JFrame jf = new JFrame("MPS Lab 03");
+                JFrame jf = new JFrame("Projeto MPS");
                 jf.setContentPane(uf);
                 jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jf.setSize(320, 265);

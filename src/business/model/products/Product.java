@@ -13,19 +13,19 @@ import business.model.interfaces.Entity;
  */
 public abstract class Product implements Entity{
     
-    public String titulo;
-    public float preco;
-    public String categoria;
-    public String avaliacoes;
-    public String genero;
-    public int ano;
+    protected String titulo;
+    protected float preco;
+    protected String categoria;
+    protected String avaliacoes;
+    protected String genero;
+    protected int ano;
     
     //Modificar
     public String get_info(){
         String describe = "Titulo: " + get_titulo() + "\n" +
                           "Preço: " + get_preco() + "\n" + 
                           "categoria: " + get_categoria() + "\n" +
-                          "Avaliações: " + get_avaliacoes();
+                          "Avaliações: " + get_avaliacoes() + "\n";
 
         return describe;
     }
