@@ -13,56 +13,45 @@ import business.model.interfaces.Entity;
  */
 public abstract class Product implements Entity{
     
-    public String titulo;
-    public float preco;
-    public String categoria;
-    public String avaliacoes;
-    public String genero;
-    public int ano;
+    private String title;
+    private float price;
+    private String category;
+    private String score = "n/a";
+    private int year;
     
-    //Modificar
+    public Product(String titulo, float preco, String categoria){
+        this.title = titulo;
+        this.price = preco;
+        this.category = categoria;
+    }
+    
+    @Override
     public String get_info(){
-        String describe = "Titulo: " + get_titulo() + "\n" +
-                          "Preço: " + get_preco() + "\n" + 
-                          "categoria: " + get_categoria() + "\n" +
-                          "Avaliações: " + get_avaliacoes();
+        String describe = "\nProduct description\n" + 
+                          "\tTitulo: " + get_title() + "\n" +
+                          "\tPreço: " + get_price() + "\n" + 
+                          "\tcategoria: " + get_category() + "\n" +
+                          "\tAvaliações: " + get_score() + "\n";
 
         return describe;
     }
-    
-     public Product(String titulo, float preco, String categoria, String avaliacoes){
-        this.titulo = titulo;
-        this.preco = preco;
-        this.categoria = categoria;
-        this.avaliacoes = avaliacoes;
-    }
-    
-    public abstract String get_titulo();
-    public abstract float get_preco();
-    public abstract String get_categoria();
-    public abstract String get_avaliacoes();
-    public abstract String get_genero();
-    public abstract void set_genero(String genero);
-    public abstract int get_ano();
-    public abstract void set_ano(int ano);
-    
-    
-    public void set_titulo(String titulo){
-        this.titulo = titulo;
-    }
-    
-     public void set_preco(float preco){
-        this.preco = preco;
-    }
-     
-    public void set_categoria(String categoria){
-        this.categoria = categoria;
-    }
-    
-    public void set_avaliacoes(String avaliacoes){
-        this.avaliacoes = avaliacoes;
-    }
 
+    public String get_title() { return this.title; }
+
+    public float get_price() { return this.price; }
+
+    public String get_category() { return this.category; }
+
+    public String get_score() { return this.score; }    
+
+    public int get_year() { return this.year; }
     
+    public void set_year(int ano) { this.year = ano; }
+    
+    public void set_titulo(String titulo){ this.title = titulo; }
+    
+    public void set_preco(float preco){ this.price = preco; }
+    
+    public void set_avaliacoes(String avaliacoes){ this.score = avaliacoes; }
     
 }

@@ -11,57 +11,56 @@ package business.model.products;
  */
 public class Movies extends Product{
 
-    private float duracao;
-    private String diretor;
-    private String estudio;
-    private String sinopse;
-    
-    
-    public Movies(String titulo, float preco, String categoria, String avaliacoes) {
-        super(titulo, preco, categoria, avaliacoes);
-    }
-
-    @Override
-    public String get_titulo() {
-        return this.titulo;
-    }
-
-    @Override
-    public float get_preco() {
-        return this.preco;
-    }
-
-    @Override
-    public String get_categoria() {
-        return this.categoria;
-    }
-
-    @Override
-    public String get_avaliacoes() {
-        return this.avaliacoes;
-    }
-
-    @Override
-    public String get_genero() {
-        return this.genero;
-    }
-
-    @Override
-    public void set_genero(String genero) {
-        this.genero = genero;
-    }
-
-    @Override
-    public int get_ano() {
-        return this.ano;
-    }
-
-    @Override
-    public void set_ano(int ano) {
-        this.ano = ano;
+    private float duration;
+    private String director;
+    private String studio;
+    private String synopsis;
+    private String genre;
+ 
+    public Movies(String titulo, float preco, float duration, String director, String studio, String genre, String synopsis){
+        super(titulo, preco, "Movie");
+        this.duration = duration;
+        this.director = director;
+        this.studio = studio;
+        this.synopsis = synopsis;
+        this.genre = genre;
     }
     
+    public Movies(String titulo, float preco) {
+        this(titulo, preco, 0, "Unknow", "Unknow", "Unknow", "Unknow");
+    }
+    
+    @Override
+    public String get_info(){
+        String describe = super.get_info();
+        describe += "\tDirector: " + get_director() + "\n";
+        describe += "\tStudio: " + get_studio() + "\n";
+        describe += "\tSynopsis: " + get_synopsis() + "\n";
+        describe += "\tGenre: " + get_genre() + "\n";
+        describe += "\tDuration: " + get_duration() + " min\n";
+        return describe;
+    }
+
+    public float get_duration() { return this.duration; }
+    
+    public String get_director() { return this.director; }
+    
+    public String get_studio() { return this.studio; }
+    
+    public String get_synopsis() { return this.synopsis; }
+    
+    public String get_genre() { return this.genre; }
     
     
+
+    public void set_duration(float newDuration) { this.duration = newDuration; }
+    
+    public void get_directors(String newDirector) { this.director = newDirector; }
+    
+    public void get_studio(String newStudio) { this.studio = newStudio; }
+    
+    public void get_synopsis(String newSynopsis) { this.synopsis = newSynopsis; }
+    
+    public void set_genre(String newGenre) { this.genre = newGenre; }   
     
 }
