@@ -2,21 +2,21 @@ package business.control;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import business.model.users.User;
 import business.model.exceptions.UserNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;
+import business.model.users.UserBuilder;
 
 
 public class UserControl {
     
-    private static ArrayList<User> users = new ArrayList<User>();
+    private static ArrayList<UserBuilder> users = new ArrayList<UserBuilder>();
     
     public static void add_user(String login, String password){
         try{
             Validator.validate_login(login);
             Validator.validate_password(password);
-            User user = new User(login, password);
+            UserBuilder user = new UserBuilder(login, password) {};
             users.add(user);
         }catch(LoginValidationException | PasswordValidationException lve){
             JOptionPane.showMessageDialog(null, lve.getMessage());
