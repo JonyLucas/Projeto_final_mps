@@ -3,9 +3,8 @@ package business.model.users;
 import business.model.exceptions.PasswordValidationException;
 import business.model.exceptions.LoginValidationException;
 import business.control.Validator;
-import business.model.interfaces.Entity;
 
-public class User implements Entity{
+public class User{
     private String login, password;
     
     public User(String login, String password){

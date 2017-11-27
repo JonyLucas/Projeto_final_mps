@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Joao
  */
-public class DisplayList {
+public class UserList {
     
     /**Lista os elementos de uma lista**/
     public static String list(List<User> users, String login){ //Deve-se deixar mais generico

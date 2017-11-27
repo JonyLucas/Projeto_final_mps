@@ -6,7 +6,6 @@
 package business.model.interfaces;
 
 import business.model.products.Product;
-import java.util.List;
 
 /**
  *
@@ -16,6 +15,7 @@ public interface ProductCatalog {
     
     public abstract void add(Product product);
     public abstract void remove(Product product);
+    public abstract Product get(int index);
     public abstract void show();
     //public abstract void order_by(String type);
     

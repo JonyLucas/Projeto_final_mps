@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model.products.factory;
+package business.control.product.factory;
 
 /**
  *
  * @author Joao
  */
 
-import business.model.exceptions.FactoryException;
+import business.model.exceptions.InvalidTypeException;
 import business.model.products.Product;
 
 /**Abstract Factory para produtos**/
-public abstract class ProductBuilder {
+public class ProductBuilder {
     
     ProductFactory product_factory;
     
-    public Product order_product(String type_of_product){
+    public Product order_product(String type_of_product) throws InvalidTypeException{
         
         Product product;
         
@@ -32,7 +32,7 @@ public abstract class ProductBuilder {
         }else if(type_of_product.equals("Movies")){
             product_factory = new MoviesFactory();
         }else{
-            throw new FactoryException("Erro: tipo inválido de produto");
+            throw new InvalidTypeException();
         }
         
         product = product_factory.make_product();
