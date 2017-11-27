@@ -9,13 +9,13 @@ package business.model.exceptions;
  *
  * @author Joao
  */
-public class FactoryException extends RuntimeException{
+public class InvalidTypeException extends RuntimeException{
     
-    public FactoryException(){
-        super("Erro: não foi possível criar o produto");
+    public InvalidTypeException(){
+        super("Erro: Tipo de produto inválido");
     }
     
-    public FactoryException(String s){
+    public InvalidTypeException(String s){
         super(s);
     }
     

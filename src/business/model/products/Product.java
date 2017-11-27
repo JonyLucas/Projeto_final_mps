@@ -5,13 +5,11 @@
  */
 package business.model.products;
 
-import business.model.interfaces.Entity;
-
 /**
  *
  * @author Joao
  */
-public abstract class Product implements Entity{
+public abstract class Product{
     
     private String title;
     private float price;
@@ -25,7 +23,6 @@ public abstract class Product implements Entity{
         this.category = categoria;
     }
     
-    @Override
     public String get_info(){
         String describe = "\nProduct description\n" + 
                           "\tTitulo: " + get_title() + "\n" +

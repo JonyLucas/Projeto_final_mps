@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model.products.factory;
+package business.control.product.factory;
 
-import business.model.exceptions.FactoryException;
 import business.model.products.Product;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ import java.util.Scanner;
  */
 public abstract class ProductFactory{
     
-    public Product make_product() throws FactoryException{
+    public Product make_product(){
 
         Product product;
         
