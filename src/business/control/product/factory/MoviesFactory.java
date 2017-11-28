@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 class MoviesFactory extends ProductFactory{
     
+    @Override
     protected Product make_type_of_product(String title, float price, int year){
         
     
@@ -37,6 +38,20 @@ class MoviesFactory extends ProductFactory{
             System.out.println("Digit the duration (in minutes) of the movie\n\tDuration: ");
             duration = scan.nextFloat();
         }
+        
+        return new Movies(title, price, duration, director, studio, genre, synopsis);
+        
+    }
+    
+    @Override
+    protected Product make_type_of_product(String title, float price, int year, String... arguments) {
+        
+        String director = arguments[0],
+               studio = arguments[1],
+               synopsis = arguments[2],
+               genre = arguments[3];
+        
+        float duration = Float.parseFloat(arguments[4]);
         
         return new Movies(title, price, duration, director, studio, genre, synopsis);
         

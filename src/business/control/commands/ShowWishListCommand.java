@@ -17,6 +17,7 @@ import business.model.wishlist.WishListComposite;
 
 /**Interface Command -- Implementação**/
 public class ShowWishListCommand implements Command{
+    
     private WishListComponent wishlist;
     
     public ShowWishListCommand(WishListComponent component){
@@ -24,7 +25,7 @@ public class ShowWishListCommand implements Command{
     }
     
     @Override
-    public void execute() throws InvalidTypeException{
+    public void execute(){
         wishlist.show_whishlist();
     }
 }

@@ -6,11 +6,12 @@
 package business.control.facade;
 
 import business.control.UserControl;
-import business.control.commands.Command;
+import business.control.commands.*;
 import business.model.exceptions.InvalidLoginException;
+import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.UserNotExistException;
+import business.model.memento.Caretaker;
 import business.model.products.Product;
-import business.model.users.states.*;
 import business.model.users.User;
 import business.model.wishlist.*;
 
@@ -26,20 +27,78 @@ public class WishListFacade {
     
     static private Command command;
     static private WishListComponent wlc;
+    static private Caretaker caretaker = Caretaker.get_instance();
     
-    static public void add_product(String login, Product product) throws UserNotExistException{
+    static public void add_product(String login, Object object) throws UserNotExistException{
+        User user = UserControl.get_user(login);
+        command = new LoginUserCommand(user, login);
+        
         try{
-            User user = UserControl.get_user(login);
-            if(user.get_current_state() instanceof LogoutState){
-                System.out.println("Erro: o usuário não está logado");
-                return;
-            }
-            wlc = user.get_wishlist();
-            wlc.add(product);
-            user.set_wishlist(wlc);
+            command.execute();
+            
+            caretaker.add_memento(user.store_wishlist_in_memento());
+            
+            command = new AddToWishListCommand(user.get_wishlist(), object);
+            command.execute();
         }catch(InvalidLoginException ile){
             System.out.println(ile.getMessage());
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
         }
     }
+    
+    static public void remove_product(String login, Object object) throws UserNotExistException{
+        
+        User user = UserControl.get_user(login);
+        command = new LoginUserCommand(user, login);
+        
+        try{
+            command.execute();
+            
+            caretaker.add_memento(user.store_wishlist_in_memento());
+            
+            command = new RemoveFromWishListCommand(user.get_wishlist(), object);
+            command.execute();
+        }catch(InvalidLoginException ile){
+            System.out.println(ile.getMessage());
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
+        }
+        
+    }
+    
+    static public void show_wishlist(String login) throws UserNotExistException{
+        
+        User user = UserControl.get_user(login);
+        command = new LoginUserCommand(user, login);
+        
+        try{
+            command.execute();
+            command = new ShowWishListCommand(user.get_wishlist());
+            command.execute();
+        }catch(InvalidLoginException ile){
+            System.out.println(ile.getMessage());
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
+        }
+        
+    }
+    /*
+    static public void undo_last_command(String login) throws UserNotExistException{
+        
+        User user = UserControl.get_user(login);
+        command = new LoginUserCommand(user, login);
+        
+        try{
+            command.execute();
+            command = new RemoveFromWishListCommand(user.get_wishlist(), object);
+            command.execute();
+        }catch(InvalidLoginException ile){
+            System.out.println(ile.getMessage());
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
+        }
+        
+    }*/
     
 }
