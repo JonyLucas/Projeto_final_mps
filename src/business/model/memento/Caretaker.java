@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.control.facade;
-
-import business.control.commands.Command;
-import business.model.products.Product;
-import business.model.wishlist.*;
+package business.model.memento;
 
 /**
  *
  * @author Joao
  */
-public class WishListFacade {
-    
-    
+public class Caretaker {
     
 }
