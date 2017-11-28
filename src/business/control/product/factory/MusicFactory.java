@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 class MusicFactory extends ProductFactory{
     
+    @Override
     protected Product make_type_of_product(String title, float price, int year){
         
         String genre, artist, album;
@@ -34,6 +35,18 @@ class MusicFactory extends ProductFactory{
             duration = scan.nextFloat();
         }
 
+        return new Music(title, price, artist, genre, album, duration);
+        
+    }
+
+    @Override
+    protected Product make_type_of_product(String title, float price, int year, String... arguments) {
+        
+        String genre = arguments[0],
+               artist = arguments[1],
+               album = arguments[2];
+        float duration = Float.parseFloat(arguments[3]);
+        
         return new Music(title, price, artist, genre, album, duration);
         
     }

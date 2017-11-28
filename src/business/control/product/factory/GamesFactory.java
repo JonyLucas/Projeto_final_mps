@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 class GamesFactory extends ProductFactory{
     
+    @Override
     protected Product make_type_of_product(String title, float price, int year){
         
         String description, developer, publisher, oficialSite, genre;   
@@ -35,6 +36,19 @@ class GamesFactory extends ProductFactory{
             System.out.println("Digit the Game's oficial Site\n\tGenre: ");
             oficialSite = scan.nextLine();
         }
+        
+        return new Games(title, price, description, developer, publisher, genre, oficialSite);
+        
+    }
+    
+    @Override
+    protected Product make_type_of_product(String title, float price, int year, String... arguments) {
+        
+        String description = arguments[0],
+               developer = arguments[1],
+               publisher = arguments[2],
+               genre = arguments[3],
+               oficialSite = arguments[4];
         
         return new Games(title, price, description, developer, publisher, genre, oficialSite);
         

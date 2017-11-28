@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 class BooksFactory extends ProductFactory{
     
+    @Override
     protected Product make_type_of_product(String title, float price, int year){
         
         String author, publisher, edition, genre;
@@ -37,6 +38,20 @@ class BooksFactory extends ProductFactory{
             System.out.println("Digit the number of pages of the book\n\tGenre: ");
             number_pages = scan.nextInt();
         }
+        
+        return new Books(title, price, author, publisher, edition, genre, number_pages);
+        
+    }
+    
+    @Override
+    protected Product make_type_of_product(String title, float price, int year, String... arguments) {
+        
+        String author = arguments[0],
+               publisher = arguments[1],
+               edition = arguments[2],
+               genre = arguments[3];
+        
+        int number_pages = Integer.parseInt(arguments[4]);
         
         return new Books(title, price, author, publisher, edition, genre, number_pages);
         

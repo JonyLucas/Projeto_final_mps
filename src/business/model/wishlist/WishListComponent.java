@@ -11,9 +11,11 @@ package business.model.wishlist;
  */
 
 import business.model.products.*;
+import business.model.users.User;
 
 public interface WishListComponent {
     
+    public User get_owner();
     public String get_name();
     public void set_name(String newListName);
     public void add(Product product);

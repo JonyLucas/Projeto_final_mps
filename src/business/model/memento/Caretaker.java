@@ -29,6 +29,6 @@ public class Caretaker {
     }
     
     public void add_memento(Memento m){ saved_states.add(m); }
-    public Memento get_lastest_memento() { return saved_states.getLast(); }
+    public Memento get_lastest_memento() { return saved_states.pollLast(); }
     
 }

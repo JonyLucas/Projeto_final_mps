@@ -17,8 +17,9 @@ import business.model.products.Product;
 public class ProductBuilder {
     
     ProductFactory product_factory;
+
     
-    public Product order_product(String type_of_product) throws InvalidTypeException{
+    public Product order_product(String type_of_product, String ... arguments) throws InvalidTypeException{
         
         Product product;
         
@@ -35,7 +36,10 @@ public class ProductBuilder {
             throw new InvalidTypeException();
         }
         
-        product = product_factory.make_product();
+        if(arguments.length == 0)
+            product = product_factory.make_product();
+        else
+            product = product_factory.make_product(arguments);
         
         return product;
         

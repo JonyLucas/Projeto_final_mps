@@ -6,6 +6,7 @@
 package business.model.wishlist;
 
 import business.model.products.Product;
+import business.model.users.User;
 import java.util.ArrayList;
 /**
  *
@@ -13,17 +14,22 @@ import java.util.ArrayList;
  */
 public class ElementaryWishList implements WishListComponent{
     
+    private User owner;
     private String name;
     private ArrayList<Product> desired_products;
     
-    public ElementaryWishList(String name){
+    public ElementaryWishList(User user, String name){
+        owner = user;
         this.name = name;
         desired_products = new ArrayList<Product>();
     }
     
-    public ElementaryWishList(){
-        this("Unnamed wishlist");
+    public ElementaryWishList(User user){
+        this(user, "Unnamed wishlist");
     }
+    
+    @Override
+    public User get_owner() { return this.owner; }
     
     @Override
     public String get_name() { return this.name; }

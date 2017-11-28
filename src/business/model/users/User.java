@@ -4,6 +4,7 @@ import business.model.exceptions.PasswordValidationException;
 import business.model.exceptions.LoginValidationException;
 import business.control.Validator;
 import business.model.exceptions.InvalidLoginException;
+import business.model.memento.Memento;
 import business.model.users.states.*;
 import business.model.wishlist.WishListComponent;
 import business.model.wishlist.WishListComposite;
@@ -18,21 +19,26 @@ public class User{
     private LogoutState logout_state;
     private UserState current_state;
     
-    public User(String login, String password){
+    
+    public User(String login, String password, String wishlist_name){
         this.login = login;
         this.password = password;
-        wishlist = new WishListComposite();
+        wishlist = new WishListComposite(this, wishlist_name);
         login_state = new LoginState(this);
         logout_state = new LogoutState(this);
         current_state = logout_state;
+    }    
+    
+    public User(String login, String password){
+        this(login, password, "Unnamed wishlist");
     }
     
     public User(String login){
-        this(login, "login123");
+        this(login, "login123", "Unnamed wishlist");
     }
     
     public User(){
-        this("login","login123");
+        this("login","login123", "Unnamed wishlist");
     }
     
     public String get_info(){
@@ -61,6 +67,12 @@ public class User{
     public UserState get_logout_state() { return this.logout_state; }
     
     
+    public Memento store_wishlist_in_memento() throws InvalidLoginException{
+        if(current_state instanceof LoginState){
+            return new Memento(wishlist);
+        }else
+            throw new InvalidLoginException("The user must be logged");
+    }
     
     public void set_wishlist(WishListComponent newWishList){ this.wishlist = (WishListComposite) newWishList; }
     

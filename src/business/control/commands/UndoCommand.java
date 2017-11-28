@@ -6,12 +6,21 @@
 package business.control.commands;
 
 import business.model.exceptions.InvalidTypeException;
+import business.model.memento.Memento;
 
 /**
  *
  * @author Joao
  */
+public class UndoCommand implements Command {
 
-public interface Command {
-    public void execute();
+    private Memento memento;
+    
+    
+    
+    @Override
+    public void execute() throws InvalidTypeException {
+        
+    }
+    
 }

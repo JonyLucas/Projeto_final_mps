@@ -43,4 +43,31 @@ public abstract class ProductFactory{
     
     /**Cria o produto do tipo especifico**/
     protected abstract Product make_type_of_product(String title, float price, int year);
+    
+    
+    
+    public Product make_product(String ... arguments){
+
+        Product product;
+        
+        String title = arguments[0];
+        float price = Float.parseFloat(arguments[1]);
+        int year = Integer.parseInt(arguments[2]);
+        
+        int size = arguments.length;
+        String[] type_product_arguments = new String[size-3];
+        for(int i = 3; i < size; i++){
+            type_product_arguments[i-3] = arguments[i];
+        }
+        
+        /**Template Method**/
+        product = make_type_of_product(title, price, year, type_product_arguments);
+        
+        return product;
+    }
+    
+    /**Cria o produto do tipo especifico**/
+    protected abstract Product make_type_of_product(String title, float price, int year, String ... arguments);
+    
+    
 }

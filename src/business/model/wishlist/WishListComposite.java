@@ -5,7 +5,9 @@
  */
 package business.model.wishlist;
 
+import business.model.memento.Memento;
 import business.model.products.Product;
+import business.model.users.User;
 import java.util.ArrayList;
 
 /**
@@ -16,19 +18,24 @@ import java.util.ArrayList;
 /**Esta classe implementa o padrão composite**/
 public class WishListComposite implements WishListComponent{
 
+    private User owner;
     private String name;
     private ArrayList <WishListComponent> components;
     private ArrayList <Product> desired_products;
     
-    public WishListComposite(String name){
+    public WishListComposite(User user, String name){
+        this.owner = user;
         this.name = name;
         components = new ArrayList<WishListComponent>();
         desired_products = new ArrayList<Product>();
     }
     
-    public WishListComposite(){
-        this("Unnamed Wishlist");
+    public WishListComposite(User user){
+        this(user, "Unnamed Wishlist");
     }
+    
+    @Override
+    public User get_owner() { return this.owner; }
     
     @Override
     public String get_name() { return this.name; }
@@ -45,7 +52,7 @@ public class WishListComposite implements WishListComponent{
     public void remove(Product product) { this.desired_products.remove(product); }
     
     public void delete(WishListComponent component){ this.components.remove(component); }
-
+    
     @Override
     public void show_whishlist() {
         

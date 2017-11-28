@@ -35,7 +35,7 @@ public class RemoveFromWishListCommand implements Command{
         }else if(obj instanceof Product){
             wishlist.remove((Product) obj);
         }else{
-            throw new InvalidTypeException("Erro: tipo de objeto inválido");
+            throw new InvalidTypeException("Erro: invalid type of object");
         }
         
     }
