@@ -6,6 +6,8 @@ import business.model.users.User;
 import business.model.exceptions.UserNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class UserControl {
@@ -26,20 +28,38 @@ public class UserControl {
     
     public static void remove_user(String login) throws UserNotExistException{
         boolean exist = false;
+        
+        User user = get_user(login);
+        
+        if(user != null)
+            users.remove(user);
+        else
+            throw new UserNotExistException();
+        
+    }
+    
+    public static User get_user(String login) throws UserNotExistException{
+        boolean exist = false;
         int size = users.size();
         
         for(int i = 0; i < size; i++){
             User user = users.get(i);
-            if(user.get_login().equals(login)){
-                users.remove(user);
-                exist = true;
-                i--;
-                size = users.size();
+            if(user.get_login().equals(login)){                
+                return user;
             }
         }
         
-        if(!exist)
-            throw new UserNotExistException();
+        return null;
+        
+    }
+    
+    public static void login_user(String login, String password){
+        try {
+            User user = get_user(login);
+            user.login(login, password);
+        } catch (UserNotExistException ex) {
+            System.out.println("Não foi possivel realizar o login, este usuario não existe");
+        }
         
     }
     
