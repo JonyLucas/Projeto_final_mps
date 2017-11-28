@@ -15,6 +15,10 @@ import business.model.wishlist.*;
  */
 public class WishListFacade {
     
+    static private Command command;
     
+    static public void add_product(){
+        
+    }
     
 }
