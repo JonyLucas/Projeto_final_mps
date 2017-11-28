@@ -3,15 +3,28 @@ package business.model.users;
 import business.model.exceptions.PasswordValidationException;
 import business.model.exceptions.LoginValidationException;
 import business.control.Validator;
+import business.model.exceptions.InvalidLoginException;
+import business.model.users.states.*;
+import business.model.wishlist.WishListComponent;
 import business.model.wishlist.WishListComposite;
 
 public class User{
+    
     private String login, password;
     private WishListComposite wishlist;
+    
+    /**Padrão State**/
+    private LoginState login_state;
+    private LogoutState logout_state;
+    private UserState current_state;
     
     public User(String login, String password){
         this.login = login;
         this.password = password;
+        wishlist = new WishListComposite();
+        login_state = new LoginState(this);
+        logout_state = new LogoutState(this);
+        current_state = logout_state;
     }
     
     public User(String login){
@@ -22,13 +35,36 @@ public class User{
         this("login","login123");
     }
     
-    public String get_login(){
-        return this.login;
+    public String get_info(){
+        return "<html><strong>Login:</strong> <em>" + this.login + "</em>  <strong>Senha:</strong> <em>" + this.password + "</em></html>\n";
     }
     
-    public String get_password(){
-        return this.password;
+    public boolean login(String login_argument, String password_argument) throws InvalidLoginException{
+        if(this.login.equals(login_argument) && this.password.equals(password_argument)){
+            current_state.login(login, password);
+            return true;
+        }else{
+            throw new InvalidLoginException();
+        }
     }
+    
+    public String get_login(){ return this.login; }
+    
+    public String get_password(){ return this.password; }
+    
+    public WishListComponent get_wishlist(){ return this.wishlist; }
+    
+    public UserState get_current_state() { return this.current_state; }
+    
+    public UserState get_login_state() { return this.login_state; }
+    
+    public UserState get_logout_state() { return this.logout_state; }
+    
+    
+    
+    public void set_wishlist(WishListComponent newWishList){ this.wishlist = (WishListComposite) newWishList; }
+    
+    public void set_state(UserState newState){ this.current_state = newState; }
     
     public void set_login(String login){
         try{
@@ -46,10 +82,6 @@ public class User{
         }catch(PasswordValidationException uve){
             System.out.println(uve.getMessage());
         }
-    }
-    
-    public String get_info(){
-        return "<html><strong>Login:</strong> <em>" + this.login + "</em>  <strong>Senha:</strong> <em>" + this.password + "</em></html>\n";
     }
     
 }
