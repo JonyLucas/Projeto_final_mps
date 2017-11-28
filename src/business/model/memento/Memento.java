@@ -5,10 +5,22 @@
  */
 package business.model.memento;
 
+import business.model.wishlist.WishListComponent;
+
 /**
  *
  * @author Joao
  */
 public class Memento {
+    
+    private WishListComponent wlc;
+    
+    public Memento(WishListComponent component){
+        wlc = component;
+    }
+    
+    public WishListComponent get_saved_wishlist(){
+        return this.wlc;
+    }
     
 }

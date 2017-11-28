@@ -3,9 +3,11 @@ package business.model.users;
 import business.model.exceptions.PasswordValidationException;
 import business.model.exceptions.LoginValidationException;
 import business.control.Validator;
+import business.model.wishlist.WishListComposite;
 
 public class User{
     private String login, password;
+    private WishListComposite wishlist;
     
     public User(String login, String password){
         this.login = login;
