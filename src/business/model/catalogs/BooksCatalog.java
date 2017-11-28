@@ -5,7 +5,6 @@
  */
 package business.model.catalogs;
 
-import business.model.interfaces.ProductCatalog;
 import business.model.products.Books;
 import business.model.products.Product;
 import java.util.ArrayList;

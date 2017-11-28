@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.control.facade;
+package business.control.commands;
 
-import business.control.commands.Command;
-import business.model.products.Product;
-import business.model.wishlist.*;
+import business.model.exceptions.InvalidTypeException;
 
 /**
  *
  * @author Joao
  */
-public class WishListFacade {
-    
-    
-    
+
+public interface Command {
+    public void execute() throws InvalidTypeException;
 }

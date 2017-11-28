@@ -12,7 +12,7 @@ import business.control.product.factory.ProductBuilder;
 import business.model.catalogs.*;
 import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.UserNotExistException;
-import business.model.interfaces.ProductCatalog;
+import business.model.catalogs.ProductCatalog;
 import business.model.products.*;
 
 /**

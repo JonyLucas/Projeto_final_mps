@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.model.wishlist;
+package business.model.memento;
 
 /**
  *
  * @author Joao
  */
-public class WishList {
+public class Memento {
     
 }

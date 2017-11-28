@@ -15,7 +15,7 @@ import business.model.catalogs.GamesCatalog;
 import business.model.catalogs.MovieCatalog;
 import business.model.catalogs.MusicCatalog;
 import business.model.exceptions.InvalidTypeException;
-import business.model.interfaces.ProductCatalog;
+import business.model.catalogs.ProductCatalog;
 import business.model.products.*;
 
 public class CatalogControl {
