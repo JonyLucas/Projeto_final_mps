@@ -53,4 +53,9 @@ public class MovieCatalog implements ProductCatalog{
         }
     }
     
+    @Override
+    public int get_size() {
+        return movies_list.size();
+    }
+    
 }

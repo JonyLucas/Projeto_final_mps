@@ -17,12 +17,12 @@ public class Books extends Product{
     private String genre;
     private int number_pages;
 
-    public Books(String titulo, float preco) {
-        this(titulo, preco, null, "Unknow", "Unknow", "Unknow", 0);
+    public Books(String titulo, float preco, int year) {
+        this(titulo, preco, year, null, "Unknow", "Unknow", "Unknow", 0);
     }
     
-    public Books(String titulo, float preco, String autor, String editora, String edicao, String genre, int num_page) {
-        super(titulo, preco, "Books");
+    public Books(String titulo, float preco, int year, String autor, String editora, String edicao, String genre, int num_page) {
+        super(titulo, preco, "Books", year);
         this.author = autor;
         this.publisher =  editora;
         this.edition = edicao;

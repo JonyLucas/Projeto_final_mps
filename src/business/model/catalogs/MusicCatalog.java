@@ -53,4 +53,9 @@ public class MusicCatalog implements ProductCatalog{
         }
     }
 
+    @Override
+    public int get_size() {
+        return musics_list.size();
+    }
+
 }

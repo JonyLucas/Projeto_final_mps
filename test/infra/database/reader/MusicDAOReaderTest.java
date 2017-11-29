@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.reader;
 
-import business.model.users.User;
+import business.model.products.Product;
+import infra.database.reader.MusicDAOReader;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,11 +17,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Leonardo Dantas
+ * @author Joao
  */
-public class UserDAOTest {
+public class MusicDAOReaderTest {
     
-    public UserDAOTest() {
+    public MusicDAOReaderTest() {
     }
     
     @BeforeClass
@@ -40,12 +41,13 @@ public class UserDAOTest {
     }
 
     /**
-     * Test of buscar method, of class UserDAO.
+     * Test of buscar method, of class MusicDAO.
      */
     @Test
     public void testBuscar() throws Exception {
-       UserDAO userdao = new UserDAO();
-       userdao.buscar();
+        System.out.println("buscar");
+        MusicDAOReader musicDAO = new MusicDAOReader();
+        musicDAO.load("digitalquestdb");
     }
     
 }

@@ -17,10 +17,11 @@ public abstract class Product{
     private String score = "n/a";
     private int year;
     
-    public Product(String titulo, float preco, String categoria){
+    public Product(String titulo, float preco, String categoria, int year){
         this.title = titulo;
         this.price = preco;
         this.category = categoria;
+        this.year = year;
     }
     
     public String get_info(){
@@ -28,6 +29,7 @@ public abstract class Product{
                           "\tTitulo: " + get_title() + "\n" +
                           "\tPreço: " + get_price() + "\n" + 
                           "\tcategoria: " + get_category() + "\n" +
+                          "\tAno: " + get_year() + "\n" +
                           "\tAvaliações: " + get_score() + "\n";
 
         return describe;

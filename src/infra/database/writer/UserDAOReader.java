@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.writer;
 
+import infra.database.reader.*;
 import business.model.users.User;
+import infra.Adpter.Reader;
+import infra.database.Conexao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +17,18 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
-public class UserDAO {
+public class UserDAOReader implements Reader{
    
-    public List<User> buscar() throws Exception {
+    @Override
+    public List<User> load(String dbName) throws Exception {
          /* Define a SQL */
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT Login, Senha ");
         sql.append("FROM usuarios ");
         
           /* Abre a conexão que criamos o retorno é armazenado na variavel conn */
-        Connection conn = Conexao.abrir();
+        Conexao connect = new Conexao(dbName);
+        Connection conn = connect.abrir();
 
         /* Mapeamento objeto relacional */
         PreparedStatement comando = conn.prepareStatement(sql.toString());

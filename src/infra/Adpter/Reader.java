@@ -13,5 +13,5 @@ import java.util.List;
  * @author Joao
  */
 public interface Reader {
-    public abstract List<User> load(String path);
+    public abstract Object load(String path) throws Exception;
 }

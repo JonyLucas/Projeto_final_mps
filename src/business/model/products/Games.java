@@ -17,12 +17,12 @@ public class Games extends Product{
     private String oficialSite;
     private String genre;
 
-    public Games(String titulo, float preco) {
-        this(titulo, preco, "", "Unknow", "Unknow", "Unknow", "");
+    public Games(String titulo, float preco, int year) {
+        this(titulo, preco, year, "", "Unknow", "Unknow", "Unknow", "");
     }
     
-    public Games(String titulo, float preco, String descricao, String desenvolvedor, String publicadora, String genre, String site_oficial){
-        super(titulo, preco, "Games");
+    public Games(String titulo, float preco, int year, String descricao, String desenvolvedor, String publicadora, String genre, String site_oficial){
+        super(titulo, preco, "Games", year);
         this.description = descricao;
         this.developer = desenvolvedor;
         this.publisher = publicadora;

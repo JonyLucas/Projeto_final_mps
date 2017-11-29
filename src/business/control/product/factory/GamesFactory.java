@@ -37,7 +37,7 @@ class GamesFactory extends ProductFactory{
             oficialSite = scan.nextLine();
         }
         
-        return new Games(title, price, description, developer, publisher, genre, oficialSite);
+        return new Games(title, price, year, description, developer, publisher, genre, oficialSite);
         
     }
     
@@ -50,7 +50,7 @@ class GamesFactory extends ProductFactory{
                genre = arguments[3],
                oficialSite = arguments[4];
         
-        return new Games(title, price, description, developer, publisher, genre, oficialSite);
+        return new Games(title, price, year, description, developer, publisher, genre, oficialSite);
         
     }
     

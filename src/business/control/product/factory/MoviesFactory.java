@@ -39,7 +39,7 @@ class MoviesFactory extends ProductFactory{
             duration = scan.nextFloat();
         }
         
-        return new Movies(title, price, duration, director, studio, genre, synopsis);
+        return new Movies(title, price, year, duration, director, studio, genre, synopsis);
         
     }
     
@@ -57,7 +57,7 @@ class MoviesFactory extends ProductFactory{
                genre = arguments[3],
                synopsis = arguments[4];
         
-        return new Movies(title, price, duration, director, studio, genre, synopsis);
+        return new Movies(title, price, year, duration, director, studio, genre, synopsis);
         
     }
     

@@ -53,4 +53,9 @@ public class GamesCatalog implements ProductCatalog{
         }
     }
     
+    @Override
+    public int get_size() {
+        return games_list.size();
+    }
+    
 }

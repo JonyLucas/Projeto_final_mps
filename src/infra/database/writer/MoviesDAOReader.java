@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.writer;
 
+import infra.database.reader.*;
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;
+import infra.Adpter.Reader;
+import infra.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,16 +21,18 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
-public class MoviesDAO {
+public class MoviesDAOReader implements Reader {
      
-    public List<Product> buscar() throws Exception {
+    @Override
+    public List<Product> load(String dbName) throws Exception {
         /* Define a SQL */
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * ");
         sql.append("FROM produtos INNER JOIN filmes ON produtos.idProdutos = filmes.Produtos_idProdutos");
         
         /* Abre a conexão que criamos o retorno é armazenado na variavel conn */
-        Connection conn = Conexao.abrir();
+        Conexao connect = new Conexao(dbName);
+        Connection conn = connect.abrir();
 
         /* Mapeamento objeto relacional */
         PreparedStatement comando = conn.prepareStatement(sql.toString());

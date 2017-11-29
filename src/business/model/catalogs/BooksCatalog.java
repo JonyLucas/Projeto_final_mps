@@ -54,5 +54,10 @@ public class BooksCatalog implements ProductCatalog{
         }
     }
     
+    @Override
+    public int get_size() {
+        return books_list.size();
+    }
+    
     
 }

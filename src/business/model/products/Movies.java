@@ -17,8 +17,8 @@ public class Movies extends Product{
     private String synopsis;
     private String genre;
  
-    public Movies(String titulo, float preco, float duration, String director, String studio, String genre, String synopsis){
-        super(titulo, preco, "Movie");
+    public Movies(String titulo, float preco, int year, float duration, String director, String studio, String genre, String synopsis){
+        super(titulo, preco, "Movie", year);
         this.duration = duration;
         this.director = director;
         this.studio = studio;
@@ -26,8 +26,8 @@ public class Movies extends Product{
         this.genre = genre;
     }
     
-    public Movies(String titulo, float preco) {
-        this(titulo, preco, 0, "Unknow", "Unknow", "Unknow", "Unknow");
+    public Movies(String titulo, float preco, int year) {
+        this(titulo, preco, year, 0, "Unknow", "Unknow", "Unknow", "Unknow");
     }
     
     @Override

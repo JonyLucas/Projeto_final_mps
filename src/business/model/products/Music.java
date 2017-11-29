@@ -16,16 +16,16 @@ public class Music extends Product{
     private String album;
     private float duration;
     
-    public Music(String titulo, float preco, String artista, String genero, String album, float duracao) {
-        super(titulo, preco, "Music");
+    public Music(String titulo, float preco, int year, String artista, String genero, String album, float duracao) {
+        super(titulo, preco, "Music", year);
         this.artist = artista;
         this.album = album;
         this.duration = duracao;
         this.genre = genero;
     }
     
-    public Music(String titulo, float preco){
-        this(titulo, preco, "Unknow", "Unknow", "Unknow", 0);
+    public Music(String titulo, float preco, int year){
+        this(titulo, preco, year, "Unknow", "Unknow", "Unknow", 0);
     }
     
     @Override
