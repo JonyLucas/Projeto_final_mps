@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.reader;
 
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;
+import infra.Adpter.Reader;
+import infra.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,16 +19,18 @@ import java.util.List;
  *
  * @author Joao
  */
-public class GamesDAO {
+public class MusicDAOReader implements Reader {
      
-    public List<Product> buscar() throws Exception {
+    @Override
+    public List<Product> load(String dbName) throws Exception {
         /* Define a SQL */
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * ");
-        sql.append("FROM produtos INNER JOIN jogos ON produtos.idProdutos = jogos.Produtos_idProdutos");
+        sql.append("FROM produtos INNER JOIN musicas ON produtos.idProdutos = musicas.Produtos_idProdutos");
         
         /* Abre a conexão que criamos o retorno é armazenado na variavel conn */
-        Connection conn = Conexao.abrir();
+        Conexao connect = new Conexao(dbName);
+        Connection conn = connect.abrir();
 
         /* Mapeamento objeto relacional */
         PreparedStatement comando = conn.prepareStatement(sql.toString());
@@ -37,8 +41,8 @@ public class GamesDAO {
         ProductBuilder pb = new ProductBuilder();
 
         /* Cria uma lista para armazenar o resultado da consulta */
-        List<Product> games = new ArrayList<Product>();  
-        String[] arguments = new String[8];
+        List<Product> musics = new ArrayList<Product>();  
+        String[] arguments = new String[7];
         
         /* Percorre o resultado armazenando os valores em uma lista */
         while (resultado.next()) {
@@ -46,17 +50,16 @@ public class GamesDAO {
            arguments[0] = resultado.getString("Titulo");
            arguments[1] = resultado.getString("Preco");
            arguments[2] = resultado.getString("Ano");
-           arguments[3] = resultado.getString("Descricao");
-           arguments[4] = resultado.getString("Desenvolvedor");
-           arguments[5] = resultado.getString("Publicadora");
-           arguments[6] = resultado.getString("Genero");
-           arguments[7] = resultado.getString("Site_oficial");
+           arguments[3] = resultado.getString("Artista");
+           arguments[4] = resultado.getString("Genero");
+           arguments[5] = resultado.getString("Album");
+           arguments[6] = resultado.getString("Duracao");
            
-           games.add(pb.order_product("Games", arguments));
+           musics.add(pb.order_product("Music", arguments));
            
         }
         
-        for(Product product : games){
+        for(Product product : musics){
             System.out.println(product.get_info());
         }
         
@@ -66,6 +69,6 @@ public class GamesDAO {
          conn.close();
       
         /* Retorna a lista contendo o resultado da consulta */
-        return games;
+        return musics;
     }
 }

@@ -46,4 +46,9 @@ public class StorageWriter implements Writer{
             throw new StorageException();
         }
     }
+
+    @Override
+    public void save(String path, Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

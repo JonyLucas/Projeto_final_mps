@@ -35,7 +35,7 @@ class MusicFactory extends ProductFactory{
             duration = scan.nextFloat();
         }
 
-        return new Music(title, price, artist, genre, album, duration);
+        return new Music(title, price, year, artist, genre, album, duration);
         
     }
 
@@ -56,7 +56,7 @@ class MusicFactory extends ProductFactory{
             duration = 0;
         }
         
-        return new Music(title, price, artist, genre, album, duration);
+        return new Music(title, price, year, artist, genre, album, duration);
         
     }
             

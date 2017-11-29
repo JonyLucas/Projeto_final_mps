@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.reader;
 
-import business.model.products.Product;
+import business.model.users.User;
+import infra.database.reader.UserDAOReader;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,11 +17,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Joao
+ * @author Leonardo Dantas
  */
-public class MoviesDAOTest {
+public class UserDAOReaderTest {
     
-    public MoviesDAOTest() {
+    public UserDAOReaderTest() {
     }
     
     @BeforeClass
@@ -40,13 +41,12 @@ public class MoviesDAOTest {
     }
 
     /**
-     * Test of buscar method, of class MoviesDAO.
+     * Test of buscar method, of class UserDAO.
      */
     @Test
     public void testBuscar() throws Exception {
-        System.out.println("buscar");
-        MoviesDAO movieDAO = new MoviesDAO();
-        movieDAO.buscar();
+       UserDAOReader userdao = new UserDAOReader();
+       userdao.load("digitalquestdb");
     }
     
 }

@@ -95,4 +95,23 @@ public class CatalogControl {
         product_catalog.show();
     }
     
+    public static int get_size(String type_of_product) throws InvalidTypeException{
+        
+        ProductCatalog product_catalog;
+        
+        if(type_of_product.equals("Music")){
+            product_catalog = MusicCatalog.get_instance();
+        }else if(type_of_product.equals("Movies")){
+            product_catalog = MovieCatalog.get_instance();
+        }else if(type_of_product.equals("Games")){
+            product_catalog = GamesCatalog.get_instance();
+        }else if(type_of_product.equals("Books")){
+            product_catalog = BooksCatalog.get_instance();
+        }else{
+            throw new InvalidTypeException();
+        }
+        
+        return product_catalog.get_size();
+    }
+    
 }

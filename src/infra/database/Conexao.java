@@ -13,13 +13,17 @@ import java.sql.DriverManager;
  * @author Leonardo Dantas
  */
 public class Conexao {
-    private static final String USUARIO = "root";
-    private static final String SENHA = "";
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/digitalquestdb";
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private String USUARIO = "root";
+    private String SENHA = "";
+    private String URL = "jdbc:mysql://127.0.0.1:3306/";
+    private String DRIVER = "com.mysql.jdbc.Driver";
 
+    public Conexao(String bdName){
+        URL += bdName;
+    }
+    
     // Conectar ao banco
-    public static Connection abrir() throws Exception {
+    public Connection abrir() throws Exception {
         // Registrar o driver
         Class.forName(DRIVER);
         // Capturar a conexão

@@ -39,7 +39,7 @@ class BooksFactory extends ProductFactory{
             number_pages = scan.nextInt();
         }
         
-        return new Books(title, price, author, publisher, edition, genre, number_pages);
+        return new Books(title, price, year, author, publisher, edition, genre, number_pages);
         
     }
     
@@ -58,7 +58,7 @@ class BooksFactory extends ProductFactory{
             number_pages = 0;
         }
             
-        return new Books(title, price, author, publisher, edition, genre, number_pages);
+        return new Books(title, price, year, author, publisher, edition, genre, number_pages);
         
     }
 }

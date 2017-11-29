@@ -45,17 +45,31 @@ public class RegisterFacadeTest {
     @Test
     public void testRegister_product() {
         System.out.println("register_product");
-        try{
-            RegisterFacade.register_product("Games");
-            RegisterFacade.register_product("Games");
-            RegisterFacade.show_catalog("Games");
-            
-            RegisterFacade.register_product("Movies");
-            RegisterFacade.register_product("Movies");
-            RegisterFacade.show_catalog("Movies");
-        }catch(Exception e){
-            fail();
-        }
+        
+        String title = "Novo mundo",
+        price = "29.99",
+        year = "2017",
+        author = "Joao Lucas",
+        publisher = "Abril",
+        edition = "1 edicao",
+        genre = "Acao",
+        num_pages = "384";     
+               
+        RegisterFacade.register_product("Books", title, price, year, author, publisher, edition, genre, num_pages);
+        
+        title = "Novo mundo 2";
+        price = "49.99";
+        year = "2020";
+        author = "Joao Lucas";
+        publisher = "Abril";
+        edition = "1 edicao";
+        genre = "Acao e aventura";
+        num_pages = "384";     
+        
+        RegisterFacade.register_product("Books", title, price, year, author, publisher, edition, genre, num_pages);
+        
+        RegisterFacade.show_catalog("Books");
+        
     }
 
     /**
@@ -63,14 +77,13 @@ public class RegisterFacadeTest {
      */
     @Test
     public void testRemove_product() {
+        
         System.out.println("remove_product");
-        try{
-            Product product = RegisterFacade.get_product("Movies", 0);
-            RegisterFacade.remove_product(product);
-            RegisterFacade.show_catalog("Movies");
-        }catch(Exception e){
-            fail();
-        }
+        
+        Product product = RegisterFacade.get_product("Books", 0);
+        RegisterFacade.remove_product(product);
+        RegisterFacade.show_catalog("Books");
+
     }
     
     /**

@@ -83,22 +83,16 @@ public class WishListFacade {
         }
         
     }
-    /*
+    
     static public void undo_last_command(String login) throws UserNotExistException{
-        
-        User user = UserControl.get_user(login);
-        command = new LoginUserCommand(user, login);
-        
+                
         try{
+            command = new UndoCommand();
             command.execute();
-            command = new RemoveFromWishListCommand(user.get_wishlist(), object);
-            command.execute();
-        }catch(InvalidLoginException ile){
-            System.out.println(ile.getMessage());
-        }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
+        }catch(Exception e){
+            System.out.println("Can't execute the undo command");
         }
         
-    }*/
+    }
     
 }

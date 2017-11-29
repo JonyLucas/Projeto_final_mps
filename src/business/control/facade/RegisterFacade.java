@@ -8,12 +8,17 @@ package business.control.facade;
 import business.control.CatalogControl;
 import business.control.UserControl;
 import business.control.UserList;
+import business.control.commands.*;
 import business.control.product.factory.ProductBuilder;
 import business.model.catalogs.*;
 import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.UserNotExistException;
 import business.model.catalogs.ProductCatalog;
+import business.model.exceptions.InvalidLoginException;
 import business.model.products.*;
+import business.model.users.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,6 +34,15 @@ public class RegisterFacade {
     static public void register_product(String type_of_product){
         try{
             Product product = product_builder.order_product(type_of_product);
+            CatalogControl.add(product);
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
+        }
+    }
+    
+    static public void register_product(String type_of_product, String ... arguments){
+        try{
+            Product product = product_builder.order_product(type_of_product, arguments);
             CatalogControl.add(product);
         }catch(InvalidTypeException ite){
             System.out.println(ite.getMessage());
@@ -60,6 +74,16 @@ public class RegisterFacade {
             UserControl.remove_user(login);
         }catch(UserNotExistException unee){
             System.out.println(unee.getMessage());
+        }
+    }
+    
+    static public void user_login(String login) throws InvalidLoginException{
+        try{
+            User user = UserControl.get_user(login);
+            Command command = new LoginUserCommand(user, login);
+            command.execute();
+        } catch (UserNotExistException ex) {
+            throw new InvalidLoginException("Login can not be done");
         }
     }
     

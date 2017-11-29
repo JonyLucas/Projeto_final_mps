@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package infra.database;
+package infra.database.reader;
 
 import business.model.products.Product;
+import infra.database.reader.BooksDAOReader;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,9 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author Joao
  */
-public class GamesDAOTest {
+public class BooksDAOReaderTest {
     
-    public GamesDAOTest() {
+    public BooksDAOReaderTest() {
     }
     
     @BeforeClass
@@ -40,13 +41,13 @@ public class GamesDAOTest {
     }
 
     /**
-     * Test of buscar method, of class GamesDAO.
+     * Test of buscar method, of class BooksDAO.
      */
     @Test
     public void testBuscar() throws Exception {
         System.out.println("buscar");
-        GamesDAO gamesDAO = new GamesDAO();
-        gamesDAO.buscar();
+        BooksDAOReader booksDAO = new BooksDAOReader();
+        booksDAO.load("digitalquestdb");
     }
     
 }

@@ -13,6 +13,8 @@ import infra.Adpter.Writer;
 import infra.factory.StorageFactoryReader;
 import infra.factory.StorageFactoryWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StorageFacade{
     static Reader reader;
@@ -23,7 +25,13 @@ public class StorageFacade{
         if(path.matches(".+\\.[\\d]+"))
             reader = StorageFactoryReader.selectStorage("file");
         
-        List<User> users = reader.load(path);
+        List<User> users = null;
+        
+        try {
+            users = (List<User>) reader.load(path);
+        } catch (Exception ex) {
+            System.out.println("");
+        }
         
         for(User user : users){
             String login = user.get_login();
