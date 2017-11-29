@@ -42,10 +42,19 @@ class MusicFactory extends ProductFactory{
     @Override
     protected Product make_type_of_product(String title, float price, int year, String... arguments) {
         
+        for(String s : arguments){
+            System.out.println(s);
+        }
+        
         String genre = arguments[0],
                artist = arguments[1],
                album = arguments[2];
-        float duration = Float.parseFloat(arguments[3]);
+        float duration;
+        try{
+            duration = Float.parseFloat(arguments[3]);
+        }catch(NumberFormatException e){
+            duration = 0;
+        }
         
         return new Music(title, price, artist, genre, album, duration);
         

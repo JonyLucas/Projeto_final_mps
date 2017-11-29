@@ -50,9 +50,14 @@ class BooksFactory extends ProductFactory{
                publisher = arguments[1],
                edition = arguments[2],
                genre = arguments[3];
+        int number_pages;
         
-        int number_pages = Integer.parseInt(arguments[4]);
-        
+        try{
+            number_pages = Integer.parseInt(arguments[4]);
+        }catch(NumberFormatException e){
+            number_pages = 0;
+        }
+            
         return new Books(title, price, author, publisher, edition, genre, number_pages);
         
     }
