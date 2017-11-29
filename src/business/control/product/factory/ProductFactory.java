@@ -57,7 +57,10 @@ public abstract class ProductFactory{
         int size = arguments.length;
         String[] type_product_arguments = new String[size-3];
         for(int i = 3; i < size; i++){
-            type_product_arguments[i-3] = arguments[i];
+            if(arguments[i] != null)
+                type_product_arguments[i-3] = arguments[i];
+            else
+                type_product_arguments[i-3] = "";
         }
         
         /**Template Method**/
