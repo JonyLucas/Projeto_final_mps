@@ -61,9 +61,9 @@ public class BooksDAOReader implements Reader{
            
         }
         
-        for(Product product : books){
-            RegisterFacade.register_product(product);
-        }
+        //for(Product product : books){
+          //  RegisterFacade.register_product(product);
+        //}
         
         
         /* Fecha a conexão */

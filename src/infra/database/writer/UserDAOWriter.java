@@ -18,9 +18,11 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
-public class UserDAOWriter{
+
+public class UserDAOWriter implements DAOWriter{
    
-    public void save(String bdName)  throws Exception {
+  @Override  
+  public void save(String bdName)  throws Exception {
         /* Define a SQL */
         String sql = "";
         sql += "INSERT INTO usuarios (Login, Senha) VALUES ";
@@ -58,10 +60,6 @@ public class UserDAOWriter{
             throw new RuntimeException(u);      
         }
     
-    }
-
-    public void clear_file(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }    
 

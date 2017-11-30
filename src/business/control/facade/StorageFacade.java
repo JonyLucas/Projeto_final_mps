@@ -10,6 +10,8 @@ import business.model.users.User;
 import business.model.exceptions.StorageException;
 import infra.Adpter.Reader;
 import infra.Adpter.Writer;
+import infra.database.DatabaseProxy;
+import infra.database.writer.DAOWriter;
 import infra.factory.StorageFactoryReader;
 import infra.factory.StorageFactoryWriter;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
 public class StorageFacade{
     static Reader reader;
     static Writer writer;
+    static DAOWriter daowriter;
     
     public static void load_storage(String path){
         //Verifica se o path consiste de um arquivo
@@ -36,7 +39,7 @@ public class StorageFacade{
         for(User user : users){
             String login = user.get_login();
             String pass = user.get_password();
-            UserControl.add_user(login, pass);
+            UserControl.add_user("Regular", login, pass);
         }
         
     }
@@ -53,5 +56,16 @@ public class StorageFacade{
         for(User user : users){
             writer.save(path, user);
         }
+    }
+    
+    public static void save_database(String type) throws Exception{
+        daowriter =  new DatabaseProxy();
+        daowriter.save(type);
+        
+    }
+    
+    public static void load_database(String type) throws Exception{
+        reader = new DatabaseProxy();
+        reader.load(type);
     }
 }

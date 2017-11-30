@@ -61,10 +61,10 @@ public class MoviesDAOReader implements Reader {
            movies.add(pb.order_product("Movies", arguments));
            
         }
-        
-        for(Product product : movies){
-            RegisterFacade.register_product(product);
-        }
+        //for(Product product : movies){
+          //  System.out.println(product.get_info());
+        //}
+
         
         /* Fecha a conexão */
          resultado.close();

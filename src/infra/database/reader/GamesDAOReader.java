@@ -61,9 +61,9 @@ public class GamesDAOReader implements Reader {
            
         }
         
-        for(Product product : games){
-            RegisterFacade.register_product(product);
-        }
+        //for(Product product : games){
+          //  System.out.println(product.get_info());
+        //}
         
         /* Fecha a conexão */
          resultado.close();

@@ -60,9 +60,9 @@ public class MusicDAOReader implements Reader {
            
         }
         
-        for(Product product : musics){
-            RegisterFacade.register_product(product);
-        }
+        //for(Product product : musics){
+          //  System.out.println(product.get_info());
+        //}
         
         /* Fecha a conexão */
          resultado.close();

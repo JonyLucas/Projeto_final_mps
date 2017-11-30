@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author Joao
  */
-public class BooksDAOWriter{
+public class BooksDAOWriter implements DAOWriter{
      
     
     public void save(String bdName)  throws Exception {
@@ -72,5 +72,4 @@ public class BooksDAOWriter{
         }
     
     }
-
 }
