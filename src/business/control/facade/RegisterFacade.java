@@ -49,6 +49,14 @@ public class RegisterFacade {
         }
     }
     
+    static public void register_product(Product product){
+        try{
+            CatalogControl.add(product);
+        }catch(InvalidTypeException ite){
+            System.out.println(ite.getMessage());
+        }
+    }
+    
     static public void remove_product(Product product){
         try{
             CatalogControl.remove(product);

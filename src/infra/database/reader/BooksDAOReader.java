@@ -5,6 +5,7 @@
  */
 package infra.database.reader;
 
+import business.control.facade.RegisterFacade;
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;
@@ -56,14 +57,12 @@ public class BooksDAOReader implements Reader{
            arguments[6] = resultado.getString("Genero");
            arguments[7] = resultado.getString("Num_pag");
            
-           //Movies(title, price, duration, director, studio, genre, synopsis);
-           
            books.add(pb.order_product("Books", arguments));
            
         }
         
         for(Product product : books){
-            System.out.println(product.get_info());
+            RegisterFacade.register_product(product);
         }
         
         /* Fecha a conexão */
