@@ -40,6 +40,7 @@ public class RegisterFacade {
         }
     }
     
+    
     static public void register_product(String type_of_product, String ... arguments){
         try{
             Product product = product_builder.order_product(type_of_product, arguments);
@@ -48,6 +49,14 @@ public class RegisterFacade {
             System.out.println(ite.getMessage());
         }
     }
+    
+    static public void register_product(Product product){
+       try{
+           CatalogControl.add(product);
+       }catch(InvalidTypeException ite){
+           System.out.println(ite.getMessage());
+       }
+   }
     
     static public void remove_product(Product product){
         try{
