@@ -28,20 +28,92 @@ public class SelectProductForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        MoviesButton = new javax.swing.JButton();
+        GamesButton = new javax.swing.JButton();
+        BooksButton = new javax.swing.JButton();
+        MusicButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        MoviesButton.setBackground(new java.awt.Color(153, 153, 153));
+        MoviesButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        MoviesButton.setForeground(new java.awt.Color(51, 51, 51));
+        MoviesButton.setText("Filmes");
+        MoviesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoviesButtonActionPerformed(evt);
+            }
+        });
+
+        GamesButton.setBackground(new java.awt.Color(153, 153, 153));
+        GamesButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        GamesButton.setForeground(new java.awt.Color(51, 51, 51));
+        GamesButton.setText("Games");
+        GamesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GamesButtonActionPerformed(evt);
+            }
+        });
+
+        BooksButton.setBackground(new java.awt.Color(153, 153, 153));
+        BooksButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        BooksButton.setForeground(new java.awt.Color(51, 51, 51));
+        BooksButton.setText("Livros");
+        BooksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BooksButtonActionPerformed(evt);
+            }
+        });
+
+        MusicButton.setBackground(new java.awt.Color(153, 153, 153));
+        MusicButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        MusicButton.setForeground(new java.awt.Color(51, 51, 51));
+        MusicButton.setText("Musicas");
+        MusicButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MusicButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Selecione o tipo de produto.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 643, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(MoviesButton)
+                .addGap(18, 18, 18)
+                .addComponent(GamesButton)
+                .addGap(18, 18, 18)
+                .addComponent(BooksButton)
+                .addGap(18, 18, 18)
+                .addComponent(MusicButton)
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(88, 88, 88))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MoviesButton)
+                    .addComponent(GamesButton)
+                    .addComponent(BooksButton)
+                    .addComponent(MusicButton))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -50,19 +122,39 @@ public class SelectProductForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MoviesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoviesButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_MoviesButtonActionPerformed
+
+    private void GamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GamesButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_GamesButtonActionPerformed
+
+    private void BooksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BooksButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_BooksButtonActionPerformed
+
+    private void MusicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_MusicButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,6 +192,11 @@ public class SelectProductForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BooksButton;
+    private javax.swing.JButton GamesButton;
+    private javax.swing.JButton MoviesButton;
+    private javax.swing.JButton MusicButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

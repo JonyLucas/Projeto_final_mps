@@ -210,10 +210,8 @@ public class Home extends javax.swing.JPanel {
     private void ShowCatalogsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowCatalogsButtonActionPerformed
         // TODO add your handling code here:
 
-        CatalogsForm cf = new CatalogsForm();
-        JFrame jf = new JFrame("Catalogo de produtos");
+        JFrame jf = new SelectProductForm();
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setSize(1000, 320);
         jf.setVisible(true);
 
     }//GEN-LAST:event_ShowCatalogsButtonActionPerformed
