@@ -9,6 +9,7 @@ import business.model.exceptions.InvalidTypeException;
 import business.model.products.Product;
 import business.model.wishlist.WishListComponent;
 import business.model.wishlist.WishListComposite;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ShowWishListCommand implements Command{
     
     @Override
     public void execute(){
-        wishlist.show_whishlist();
+       String message = wishlist.show_whishlist();
+       JOptionPane.showMessageDialog(null, message);
     }
 }

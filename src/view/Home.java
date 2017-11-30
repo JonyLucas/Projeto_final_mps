@@ -8,6 +8,8 @@ package view;
 import business.control.UserControl;
 import business.control.facade.RegisterFacade;
 import business.model.users.User;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -114,6 +116,11 @@ public class Home extends javax.swing.JPanel {
         ShowCatalogsButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         ShowCatalogsButton.setForeground(new java.awt.Color(0, 0, 0));
         ShowCatalogsButton.setText("Ver Catalogos");
+        ShowCatalogsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowCatalogsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,6 +206,17 @@ public class Home extends javax.swing.JPanel {
         User user = RegisterFacade.get_user(login);
         user.login(login, password);
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void ShowCatalogsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowCatalogsButtonActionPerformed
+        // TODO add your handling code here:
+
+        CatalogsForm cf = new CatalogsForm();
+        JFrame jf = new JFrame("Catalogo de produtos");
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setSize(1000, 320);
+        jf.setVisible(true);
+
+    }//GEN-LAST:event_ShowCatalogsButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

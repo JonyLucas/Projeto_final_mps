@@ -8,6 +8,7 @@ package business.model.wishlist;
 import business.model.products.Product;
 import business.model.users.User;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Joao
@@ -43,17 +44,17 @@ public class ElementaryWishList implements WishListComponent{
 
     @Override
     public void remove(Product product) { desired_products.remove(product); }
-
+    
     @Override
-    public void show_whishlist() {
-        
-        System.out.println("--- WishList's name: " + this.get_name() + " ---");
-        System.out.println("\t\tDesired products: ");
+    public String show_whishlist() {
+        String message = ("--- WishList's name: " + this.get_name() + " ---");
+        message += ("\t\tDesired products: ");
         
         for(Product product : desired_products){
-            System.out.println("\t" + product.get_info());
+            message += "\t" + product.get_info();
         }
         
-    }    
+        return message;
+    } 
     
 }

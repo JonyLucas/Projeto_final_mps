@@ -54,22 +54,24 @@ public class WishListComposite implements WishListComponent{
     public void delete(WishListComponent component){ this.components.remove(component); }
     
     @Override
-    public void show_whishlist() {
+    public String show_whishlist() {
         
-        System.out.println("--- WishList's name: " + this.get_name() + " ---");
-        System.out.println("\t\tDesired products: ");
+        String message = ("--- WishList's name: " + this.get_name() + " ---");
+        message += ("\t\tDesired products: ");
         
         for(Product product : desired_products){
-            System.out.println("\t" + product.get_info());
+            message += "\t" + product.get_info();
         }
         
-        System.out.println("\t--- Sub wishlists ---");
+        message += ("\t--- Sub wishlists ---");
         
         for(WishListComponent comp : components){
-            comp.show_whishlist();
+            message += "\t" + comp.show_whishlist();
         }
         
         System.out.println("---------------------");
+        
+        return message;
     }
     
 }

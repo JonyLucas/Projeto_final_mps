@@ -6,6 +6,7 @@
 package business.model.users.states;
 
 import business.model.users.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,12 +22,12 @@ public class LoginState implements UserState{
     
     @Override
     public void login(String login, String password) {
-        System.out.println("You're already logged");
+        JOptionPane.showMessageDialog(null, "You're already logged");
     }
 
     @Override
     public void logout() {
-        System.out.println("You're now logged out");
+        JOptionPane.showMessageDialog(null, "You're now logged out");
         user.set_state(user.get_logout_state());
     }
     
