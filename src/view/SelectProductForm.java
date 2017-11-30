@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Joao
@@ -35,11 +37,13 @@ public class SelectProductForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(249, 249, 249));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
-        MoviesButton.setBackground(new java.awt.Color(153, 153, 153));
+        MoviesButton.setBackground(new java.awt.Color(204, 204, 204));
         MoviesButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         MoviesButton.setForeground(new java.awt.Color(51, 51, 51));
         MoviesButton.setText("Filmes");
@@ -49,7 +53,7 @@ public class SelectProductForm extends javax.swing.JFrame {
             }
         });
 
-        GamesButton.setBackground(new java.awt.Color(153, 153, 153));
+        GamesButton.setBackground(new java.awt.Color(204, 204, 204));
         GamesButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         GamesButton.setForeground(new java.awt.Color(51, 51, 51));
         GamesButton.setText("Games");
@@ -59,7 +63,7 @@ public class SelectProductForm extends javax.swing.JFrame {
             }
         });
 
-        BooksButton.setBackground(new java.awt.Color(153, 153, 153));
+        BooksButton.setBackground(new java.awt.Color(204, 204, 204));
         BooksButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BooksButton.setForeground(new java.awt.Color(51, 51, 51));
         BooksButton.setText("Livros");
@@ -69,7 +73,7 @@ public class SelectProductForm extends javax.swing.JFrame {
             }
         });
 
-        MusicButton.setBackground(new java.awt.Color(153, 153, 153));
+        MusicButton.setBackground(new java.awt.Color(204, 204, 204));
         MusicButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         MusicButton.setForeground(new java.awt.Color(51, 51, 51));
         MusicButton.setText("Musicas");
@@ -96,18 +100,18 @@ public class SelectProductForm extends javax.swing.JFrame {
                 .addComponent(BooksButton)
                 .addGap(18, 18, 18)
                 .addComponent(MusicButton)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(88, 88, 88))
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MoviesButton)
                     .addComponent(GamesButton)
@@ -120,20 +124,15 @@ public class SelectProductForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MoviesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoviesButtonActionPerformed
@@ -143,6 +142,9 @@ public class SelectProductForm extends javax.swing.JFrame {
 
     private void GamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GamesButtonActionPerformed
         // TODO add your handling code here:
+        JFrame jf = new GamesCatalogExampleJFrame();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_GamesButtonActionPerformed
 

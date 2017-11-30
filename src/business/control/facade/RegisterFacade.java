@@ -71,8 +71,12 @@ public class RegisterFacade {
         CatalogControl.show(type_of_product);
     }
     
-    static public void register_user(String login, String password){
-        UserControl.add_user(login, password);
+    static public void register_regular_user(String login, String password){
+        UserControl.add_user("Regular", login, password);
+    }
+    
+    static public void register_admin_user(String login, String password){
+        UserControl.add_user("Admin", login, password);
     }
     
     static public void remove_user(String login){

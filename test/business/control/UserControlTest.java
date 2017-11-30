@@ -71,9 +71,9 @@ public class UserControlTest {
         collection.add(user2);
         collection.add(user3);
         
-        UserControl.add_user(login_valido, password_valido);
-        UserControl.add_user(login_valido2, password_valido2);
-        UserControl.add_user(login_valido3, password_valido3);
+        UserControl.add_user("Regular", login_valido, password_valido);
+        UserControl.add_user("Regular", login_valido2, password_valido2);
+        UserControl.add_user("Regular", login_valido3, password_valido3);
         
         ArrayList<User> uc_users = UserControl.get_array_list();
         
@@ -112,9 +112,9 @@ public class UserControlTest {
         collection.add(user1);
         collection.add(user3);
         
-        UserControl.add_user(login_valido, password_valido);
-        UserControl.add_user(login_valido2, password_valido2);
-        UserControl.add_user(login_valido3, password_valido3);
+        UserControl.add_user("Regular", login_valido, password_valido);
+        UserControl.add_user("Regular", login_valido2, password_valido2);
+        UserControl.add_user("Regular", login_valido3, password_valido3);
         
         try{
             UserControl.remove_user(user2.get_login());

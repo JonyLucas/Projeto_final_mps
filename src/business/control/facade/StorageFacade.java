@@ -36,7 +36,7 @@ public class StorageFacade{
         for(User user : users){
             String login = user.get_login();
             String pass = user.get_password();
-            UserControl.add_user(login, pass);
+            UserControl.add_user("Regular", login, pass);
         }
         
     }

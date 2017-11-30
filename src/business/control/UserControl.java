@@ -6,6 +6,7 @@ import business.model.users.User;
 import business.model.exceptions.UserNotExistException;
 import business.model.exceptions.LoginValidationException;
 import business.model.exceptions.PasswordValidationException;
+import business.model.users.AdministratorUser;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,14 +15,23 @@ public class UserControl {
     
     private static ArrayList<User> users = new ArrayList<User>();
     
-    public static void add_user(String login, String password){
+    public static void add_user(String type_of_user, String login, String password){
         try{
-            if(users.contains(login)){
-                throw new LoginValidationException("Login já cadastrado");
+            for(User user : users){
+                if(login.equals(user.get_login()))
+                    throw new LoginValidationException("Login já cadastrado");
             }
             Validator.validate_login(login);
             Validator.validate_password(password);
-            User user = new User(login, password);
+            
+            User user = null;
+            
+            if(type_of_user.equals("Regular")){
+                user = new User(login, password);
+            }else if(type_of_user.equals("Admin")){
+                user = new AdministratorUser(login, password);
+            }
+            
             users.add(user);
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
         }catch(LoginValidationException | PasswordValidationException lve){
