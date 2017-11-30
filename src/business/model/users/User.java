@@ -45,13 +45,16 @@ public class User{
         return "<html><strong>Login:</strong> <em>" + this.login + "</em>  <strong>Senha:</strong> <em>" + this.password + "</em></html>\n";
     }
     
-    public boolean login(String login_argument, String password_argument) throws InvalidLoginException{
+    public void login(String login_argument, String password_argument) throws InvalidLoginException{
         if(this.login.equals(login_argument) && this.password.equals(password_argument)){
             current_state.login(login, password);
-            return true;
         }else{
             throw new InvalidLoginException();
         }
+    }
+    
+    public void logout(){
+        current_state.logout();
     }
     
     public String get_login(){ return this.login; }

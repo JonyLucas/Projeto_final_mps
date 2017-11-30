@@ -25,6 +25,7 @@ public class StorageWriter implements Writer{
         return sw;
     }
     
+    @Override
     public void save(String path, User user){
         try {
             fout = new FileWriter(path, true);
@@ -47,8 +48,4 @@ public class StorageWriter implements Writer{
         }
     }
 
-    @Override
-    public void save(String path, Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

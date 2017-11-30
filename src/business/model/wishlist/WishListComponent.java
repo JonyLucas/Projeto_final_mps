@@ -20,6 +20,6 @@ public interface WishListComponent {
     public void set_name(String newListName);
     public void add(Product product);
     public void remove(Product product);
-    public void show_whishlist();
+    public String show_whishlist();
     
 }

@@ -73,7 +73,4 @@ public class BooksDAOWriter{
     
     }
 
-    public void clear_file(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

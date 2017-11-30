@@ -57,8 +57,6 @@ public class BooksDAOReader implements Reader{
            arguments[6] = resultado.getString("Genero");
            arguments[7] = resultado.getString("Num_pag");
            
-           //Movies(title, price, duration, director, studio, genre, synopsis);
-           
            books.add(pb.order_product("Books", arguments));
            
         }
