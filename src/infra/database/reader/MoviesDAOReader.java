@@ -5,6 +5,7 @@
  */
 package infra.database.reader;
 
+import business.control.facade.RegisterFacade;
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;
@@ -62,7 +63,7 @@ public class MoviesDAOReader implements Reader {
         }
         
         for(Product product : movies){
-            System.out.println(product.get_info());
+            RegisterFacade.register_product(product);
         }
         
         /* Fecha a conexão */

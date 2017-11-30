@@ -5,6 +5,7 @@
  */
 package infra.database.reader;
 
+import business.control.facade.RegisterFacade;
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;
@@ -60,7 +61,7 @@ public class MusicDAOReader implements Reader {
         }
         
         for(Product product : musics){
-            System.out.println(product.get_info());
+            RegisterFacade.register_product(product);
         }
         
         /* Fecha a conexão */
