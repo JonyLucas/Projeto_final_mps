@@ -23,6 +23,7 @@ import java.util.List;
  *
  * @author Joao
  */
+
 public class MusicDAOWriter implements DAOWriter{
         
      @Override

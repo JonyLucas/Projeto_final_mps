@@ -18,9 +18,11 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
+
 public class UserDAOWriter implements DAOWriter{
    
-    public void save(String bdName)  throws Exception {
+  @Override  
+  public void save(String bdName)  throws Exception {
         /* Define a SQL */
         String sql = "";
         sql += "INSERT INTO usuarios (Login, Senha) VALUES ";

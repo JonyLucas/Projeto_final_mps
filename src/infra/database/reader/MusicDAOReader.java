@@ -5,6 +5,7 @@
  */
 package infra.database.reader;
 
+import business.control.facade.RegisterFacade;
 import business.control.product.factory.ProductBuilder;
 import business.model.products.Product;
 import business.model.users.User;

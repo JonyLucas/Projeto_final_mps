@@ -23,9 +23,9 @@ import java.util.List;
  *
  * @author Joao
  */
+
 public class GamesDAOWriter implements DAOWriter{
      
-   
     @Override
     public void save(String bdName)  throws Exception {
         /* Define a SQL */
@@ -73,5 +73,4 @@ public class GamesDAOWriter implements DAOWriter{
         }
     
     }
-    
 }

@@ -24,6 +24,7 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
+
 public class MoviesDAOWriter implements DAOWriter{
      
   @Override
@@ -74,5 +75,4 @@ public class MoviesDAOWriter implements DAOWriter{
         }
     
     }
-  
 }

@@ -65,6 +65,7 @@ public class BooksDAOReader implements Reader{
           //  RegisterFacade.register_product(product);
         //}
         
+        
         /* Fecha a conexão */
          resultado.close();
          comando.close();
