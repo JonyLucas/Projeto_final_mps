@@ -130,6 +130,11 @@ public class Home extends javax.swing.JPanel {
         RegisterProductButton.setForeground(new java.awt.Color(0, 0, 0));
         RegisterProductButton.setText("Registrar Produto");
         RegisterProductButton.setEnabled(false);
+        RegisterProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterProductButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,6 +236,10 @@ public class Home extends javax.swing.JPanel {
         jf.setVisible(true);
 
     }//GEN-LAST:event_ShowCatalogsButtonActionPerformed
+
+    private void RegisterProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterProductButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterProductButtonActionPerformed
 
     
     
