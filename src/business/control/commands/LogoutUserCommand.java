@@ -5,10 +5,9 @@
  */
 package business.control.commands;
 
-import business.control.UserControl;
 import business.model.exceptions.InvalidLoginException;
-import business.model.exceptions.InvalidTypeException;
 import business.model.users.User;
+import business.model.users.states.LoginState;
 import business.model.users.states.LogoutState;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -17,24 +16,19 @@ import javax.swing.JOptionPane;
  *
  * @author Joao
  */
-public class LoginUserCommand implements Command {
-
-    private User user;
-    private String login, password;
+public class LogoutUserCommand implements Command{
     
-    public LoginUserCommand(User user, String login){
+    private User user;
+    
+    public LogoutUserCommand(User user){
         this.user = user;
-        this.login = login;
     }
     
     @Override
     public void execute() throws InvalidLoginException{
-        if(user.get_current_state() instanceof LogoutState){
-            JOptionPane.showMessageDialog(null, "Erro: the user it is not logged");
-
-            String inserted_pass = JOptionPane.showInputDialog("Digit your password");
-            user.login(login, inserted_pass);
-        }
+        if(user.get_current_state() instanceof LogoutState)
+           JOptionPane.showMessageDialog(null, "The user is already logged out");
+        else
+            user.logout();
     }
-    
 }

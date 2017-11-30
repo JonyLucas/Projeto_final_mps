@@ -16,10 +16,14 @@ public class UserControl {
     
     public static void add_user(String login, String password){
         try{
+            if(users.contains(login)){
+                throw new LoginValidationException("Login já cadastrado");
+            }
             Validator.validate_login(login);
             Validator.validate_password(password);
             User user = new User(login, password);
             users.add(user);
+            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
         }catch(LoginValidationException | PasswordValidationException lve){
             JOptionPane.showMessageDialog(null, lve.getMessage());
         }
@@ -49,7 +53,7 @@ public class UserControl {
             }
         }
         
-        return null;
+        throw new UserNotExistException();
         
     }
     
@@ -58,7 +62,7 @@ public class UserControl {
             User user = get_user(login);
             user.login(login, password);
         } catch (UserNotExistException ex) {
-            System.out.println("Não foi possivel realizar o login, este usuario não existe");
+            JOptionPane.showMessageDialog(null, "Não foi possivel realizar o login, este usuario não existe");
         }
         
     }

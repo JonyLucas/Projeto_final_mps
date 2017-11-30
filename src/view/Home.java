@@ -5,6 +5,10 @@
  */
 package view;
 
+import business.control.UserControl;
+import business.control.facade.RegisterFacade;
+import business.model.users.User;
+
 /**
  *
  * @author Joao
@@ -90,6 +94,11 @@ public class Home extends javax.swing.JPanel {
         LoginButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(0, 0, 0));
         LoginButton.setText("Login");
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
 
         RegisterButton.setBackground(new java.awt.Color(153, 153, 153));
         RegisterButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -176,8 +185,20 @@ public class Home extends javax.swing.JPanel {
         // TODO add your handling code here:
         String login, password;
         login = LoginTextField.getText();
-        password = 
+        password = PasswordTextField.getText();
+        RegisterFacade.register_user(login, password);
     }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+        // TODO add your handling code here:
+        String login, password;
+        
+        login = LoginTextField.getText();
+        password = PasswordTextField.getText();
+        
+        User user = RegisterFacade.get_user(login);
+        user.login(login, password);
+    }//GEN-LAST:event_LoginButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

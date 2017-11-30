@@ -10,15 +10,13 @@ import business.control.UserControl;
 import business.control.UserList;
 import business.control.commands.*;
 import business.control.product.factory.ProductBuilder;
-import business.model.catalogs.*;
 import business.model.exceptions.InvalidTypeException;
 import business.model.exceptions.UserNotExistException;
 import business.model.catalogs.ProductCatalog;
 import business.model.exceptions.InvalidLoginException;
 import business.model.products.*;
 import business.model.users.User;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,7 +34,7 @@ public class RegisterFacade {
             Product product = product_builder.order_product(type_of_product);
             CatalogControl.add(product);
         }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
+            JOptionPane.showMessageDialog(null, ite.getMessage());
         }
     }
     
@@ -45,7 +43,7 @@ public class RegisterFacade {
             Product product = product_builder.order_product(type_of_product, arguments);
             CatalogControl.add(product);
         }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
+            JOptionPane.showMessageDialog(null, ite.getMessage());
         }
     }
     
@@ -53,7 +51,7 @@ public class RegisterFacade {
         try{
             CatalogControl.add(product);
         }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
+            JOptionPane.showMessageDialog(null, ite.getMessage());
         }
     }
     
@@ -61,7 +59,7 @@ public class RegisterFacade {
         try{
             CatalogControl.remove(product);
         }catch(InvalidTypeException ite){
-            System.out.println(ite.getMessage());
+            JOptionPane.showMessageDialog(null, ite.getMessage());
         }
     }
     
@@ -81,8 +79,19 @@ public class RegisterFacade {
         try{
             UserControl.remove_user(login);
         }catch(UserNotExistException unee){
-            System.out.println(unee.getMessage());
+            JOptionPane.showMessageDialog(null, unee.getMessage());
         }
+    }
+    
+    static public User get_user(String login){
+        User user = null;
+        try{
+            user = UserControl.get_user(login);
+            return user;
+        }catch(UserNotExistException unee){
+            JOptionPane.showMessageDialog(null, unee.getMessage());
+        }
+        return user;
     }
     
     static public void user_login(String login) throws InvalidLoginException{
@@ -90,6 +99,7 @@ public class RegisterFacade {
             User user = UserControl.get_user(login);
             Command command = new LoginUserCommand(user, login);
             command.execute();
+            JOptionPane.showMessageDialog(null, "Login done successfully");
         } catch (UserNotExistException ex) {
             throw new InvalidLoginException("Login can not be done");
         }
