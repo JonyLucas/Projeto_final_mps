@@ -61,9 +61,9 @@ public class MoviesDAOReader implements Reader {
            
         }
         
-        for(Product product : movies){
-            System.out.println(product.get_info());
-        }
+        //for(Product product : movies){
+          //  System.out.println(product.get_info());
+        //}
         
         /* Fecha a conexão */
          resultado.close();

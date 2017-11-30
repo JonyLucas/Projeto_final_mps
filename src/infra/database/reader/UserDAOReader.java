@@ -50,9 +50,9 @@ public class UserDAOReader implements Reader{
             lista.add(linha);
         }
             
-        for(User user: lista){
-            System.out.println(user.get_info());
-        }
+        //for(User user: lista){
+          //  System.out.println(user.get_info());
+        //}
              /* Fecha a conexão */
             resultado.close();
             comando.close();

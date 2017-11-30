@@ -59,9 +59,9 @@ public class MusicDAOReader implements Reader {
            
         }
         
-        for(Product product : musics){
-            System.out.println(product.get_info());
-        }
+        //for(Product product : musics){
+          //  System.out.println(product.get_info());
+        //}
         
         /* Fecha a conexão */
          resultado.close();
