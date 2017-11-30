@@ -8,7 +8,6 @@ package infra.database;
 import business.model.exceptions.InvalidTypeException;
 import business.model.products.Product;
 import infra.Adpter.Reader;
-import infra.Adpter.Writer;
 import infra.database.reader.BooksDAOReader;
 import infra.database.reader.GamesDAOReader;
 import infra.database.reader.MoviesDAOReader;

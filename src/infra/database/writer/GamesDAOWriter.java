@@ -23,9 +23,10 @@ import java.util.List;
  *
  * @author Joao
  */
-public class GamesDAOWriter{
+public class GamesDAOWriter implements DAOWriter{
      
    
+    @Override
     public void save(String bdName)  throws Exception {
         /* Define a SQL */
         String sql = "";
@@ -72,8 +73,5 @@ public class GamesDAOWriter{
         }
     
     }
-
-    public void clear_file(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

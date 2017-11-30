@@ -23,8 +23,9 @@ import java.util.List;
  *
  * @author Joao
  */
-public class MusicDAOWriter{
+public class MusicDAOWriter implements DAOWriter{
         
+     @Override
      public void save(String bdName)  throws Exception {
         /* Define a SQL */
         String sql = "";
@@ -70,9 +71,5 @@ public class MusicDAOWriter{
             throw new RuntimeException(u);      
         }
     
-    }
-
-    public void clear_file(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -24,8 +24,9 @@ import java.util.List;
  *
  * @author Leonardo Dantas
  */
-public class MoviesDAOWriter{
+public class MoviesDAOWriter implements DAOWriter{
      
+  @Override
   public void save(String bdName)  throws Exception {
         /* Define a SQL */
         String sql = "";
@@ -73,8 +74,5 @@ public class MoviesDAOWriter{
         }
     
     }
-
-    public void clear_file(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 }
