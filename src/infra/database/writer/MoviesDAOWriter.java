@@ -42,15 +42,22 @@ public class MoviesDAOWriter{
        
         System.out.println(size);
         
-        //while(i < size-1){
-            Movies product = (Movies) CatalogControl.get("Movies", 0);
+        while(i < size-1){
+            Movies product = (Movies) CatalogControl.get("Movies", i);
             title = product.get_title();
             price = product.get_price();
             category = product.get_category();
             year = product.get_year();
-            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
-        //}
+            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "'),");
+            i++;
+        }
         
+        Movies product = (Movies) CatalogControl.get("Movies", i);
+        title = product.get_title();
+        price = product.get_price();
+        category = product.get_category();
+        year = product.get_year();
+        sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
         System.out.println(sql);
         
         try {      

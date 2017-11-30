@@ -41,15 +41,21 @@ public class MusicDAOWriter{
        
         System.out.println(size);
         
-        //while(i < size-1){
-            Music product = (Music) CatalogControl.get("Music", 0);
+        while(i < size-1){
+            Music product = (Music) CatalogControl.get("Music", i);
             title = product.get_title();
             price = product.get_price();
             category = product.get_category();
             year = product.get_year();
-            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
-        //}
-        
+            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "'),");
+            i++;
+        }
+        Music product = (Music) CatalogControl.get("Music", i);
+        title = product.get_title();
+        price = product.get_price();
+        category = product.get_category();
+        year = product.get_year();
+        sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
         System.out.println(sql);
         
         try {      

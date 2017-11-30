@@ -5,6 +5,7 @@
  */
 package infra.database.writer;
 
+import business.control.UserControl;
 import infra.database.reader.*;
 import business.model.users.User;
 import infra.Adpter.Reader;
@@ -23,30 +24,33 @@ public class UserDAOWriter{
         /* Define a SQL */
         String sql = "";
         sql += "INSERT INTO usuarios (Login, Senha) VALUES ";
-                  
+        
+        ArrayList<User> users = UserControl.get_array_list();
+        int size = UserControl.get_array_list().size();
         int i = 0;
         
         String Login, Senha;
-             
-       
-       
+               
+        while(i < size-1){
+            User user = (User) UserControl.get_user(users.get(i).get_login());
+            Login = user.get_login();
+            Senha = user.get_password();
+            sql += ("( '" + Login + "','" + Senha + "'),");
+            i++;
+        }
         
-        //while(i < size-1){
-            User user = (User) UserControl.get_user("Movies", 0);
-            title = product.get_title();
-            price = product.get_price();
-            category = product.get_category();
-            year = product.get_year();
-            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
-        //}
-        
+        User user = (User) UserControl.get_user(users.get(i).get_login());
+        Login = user.get_login();
+        Senha = user.get_password();
+        sql += ("( '" + Login + "','" + Senha + "');");
+            
         System.out.println(sql);
         
         try {      
             Conexao connect = new Conexao(bdName);
             Connection connection = connect.abrir();
             PreparedStatement stmt = connection.prepareStatement(sql);               
-            System.out.println("TEste2");
+            //System.out.println("TEste2");
             stmt.execute(); //executa comando     
             stmt.close();
             connection.close();

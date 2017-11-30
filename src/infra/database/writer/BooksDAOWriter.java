@@ -40,14 +40,22 @@ public class BooksDAOWriter{
         int number_pages;
         System.out.println(size);
         
-        //while(i < size-1){
-            Books product = (Books) CatalogControl.get("Books", 0);
+        while(i < size-1){
+            Books product = (Books) CatalogControl.get("Books", i);
             title = product.get_title();
             price = product.get_price();
             category = product.get_category();
             year = product.get_year();
-            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
-        //}
+            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "'),");
+            i++;
+        }
+        
+        Books product = (Books) CatalogControl.get("Books", i);
+        title = product.get_title();
+        price = product.get_price();
+        category = product.get_category();
+        year = product.get_year();
+        sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
         
         System.out.println(sql);
         

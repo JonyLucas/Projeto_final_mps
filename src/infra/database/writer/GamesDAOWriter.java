@@ -42,15 +42,21 @@ public class GamesDAOWriter{
       
         System.out.println(size);
         
-        //while(i < size-1){
-            Games product = (Games) CatalogControl.get("Games", 0);
+        while(i < size-1){
+            Games product = (Games) CatalogControl.get("Games", i);
             title = product.get_title();
             price = product.get_price();
             category = product.get_category();
             year = product.get_year();
-            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
-        //}
-        
+            sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "'),");
+            i++;
+        }
+        Games product = (Games) CatalogControl.get("Games", i);
+        title = product.get_title();
+        price = product.get_price();
+        category = product.get_category();
+        year = product.get_year();
+        sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "');");
         System.out.println(sql);
         
         try {      
