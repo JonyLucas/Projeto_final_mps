@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Joao
  */
+/**Padrao State para o User**/
 public class LogoutState implements UserState{
 
     private User user;

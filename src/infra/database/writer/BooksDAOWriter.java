@@ -7,15 +7,10 @@ package infra.database.writer;
 
 import business.control.CatalogControl;
 import business.model.products.Books;
-import business.model.products.Product;
-import infra.Adpter.Writer;
 import infra.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author Joao
@@ -36,10 +31,10 @@ public class BooksDAOWriter implements DAOWriter{
         String title, category, author, publisher, edition, genre;
         float price;
         int year;
-        
         int number_pages;
-        System.out.println(size);
+        //System.out.println(size);
         
+        /**Insere os dados de cada produto na query**/
         while(i < size-1){
             Books product = (Books) CatalogControl.get("Books", i);
             title = product.get_title();
@@ -50,6 +45,7 @@ public class BooksDAOWriter implements DAOWriter{
             i++;
         }
         
+        /**Insere os dados do ultimo produto na query, para terminar a query com ';' **/
         Books product = (Books) CatalogControl.get("Books", i);
         title = product.get_title();
         price = product.get_price();

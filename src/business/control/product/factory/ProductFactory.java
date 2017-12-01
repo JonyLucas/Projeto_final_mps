@@ -12,8 +12,10 @@ import java.util.Scanner;
  *
  * @author Joao
  */
+/**Abstract Factory para produtos**/
 public abstract class ProductFactory{
     
+    /**Metodo para criar o produto, usando a entrada padrao (Scanner (System.in))**/
     public Product make_product(){
 
         Product product;
@@ -41,11 +43,11 @@ public abstract class ProductFactory{
         return product;
     }
     
-    /**Cria o produto do tipo especifico**/
+    /**Cria o produto do tipo especifico, usando a entrada padrao**/
     protected abstract Product make_type_of_product(String title, float price, int year);
     
     
-    
+    /**Metodo para criar o produto, usando os argumentos fornecidos**/
     public Product make_product(String ... arguments){
 
         Product product;
@@ -69,7 +71,7 @@ public abstract class ProductFactory{
         return product;
     }
     
-    /**Cria o produto do tipo especifico**/
+    /**Cria o produto do tipo especifico, usando os argumentos fornecidos**/
     protected abstract Product make_type_of_product(String title, float price, int year, String ... arguments);
     
     

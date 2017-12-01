@@ -13,8 +13,10 @@ import java.util.Scanner;
  *
  * @author Joao
  */
+/**Fabricador de livros**/
 class BooksFactory extends ProductFactory{
     
+    /**Cria o livro usando a entrada padrao (System.in), no caso de nao ter sido passado os parametros necessarios para criar o objeto**/
     @Override
     protected Product make_type_of_product(String title, float price, int year){
         
@@ -43,6 +45,7 @@ class BooksFactory extends ProductFactory{
         
     }
     
+    /**Cria o livro usando os parametros fornecidos (String ... arguments)**/
     @Override
     protected Product make_type_of_product(String title, float price, int year, String... arguments) {
         

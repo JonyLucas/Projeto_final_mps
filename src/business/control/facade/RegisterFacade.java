@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  */
 
 /**Facade da questão 04 - LAB 04**/
+/**Facade que registra e manipula usuarios, produtos e catalogos de produtos**/
 public class RegisterFacade {
     
     static private ProductBuilder product_builder = new ProductBuilder();
@@ -33,6 +34,7 @@ public class RegisterFacade {
         try{
             Product product = product_builder.order_product(type_of_product);
             CatalogControl.add(product);
+            JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso!");
         }catch(InvalidTypeException ite){
             JOptionPane.showMessageDialog(null, ite.getMessage());
         }
@@ -43,6 +45,7 @@ public class RegisterFacade {
         try{
             Product product = product_builder.order_product(type_of_product, arguments);
             CatalogControl.add(product);
+            JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso!");
         }catch(InvalidTypeException ite){
             JOptionPane.showMessageDialog(null, ite.getMessage());
         }
@@ -67,6 +70,7 @@ public class RegisterFacade {
     static public void remove_product(Product product){
         try{
             CatalogControl.remove(product);
+            JOptionPane.showMessageDialog(null, "Produto removido com sucesso!");
         }catch(InvalidTypeException ite){
             JOptionPane.showMessageDialog(null, ite.getMessage());
         }
@@ -76,8 +80,8 @@ public class RegisterFacade {
         return CatalogControl.get(type_of_product, index);
     }
     
-    static public void show_catalog(String type_of_product){
-        CatalogControl.show(type_of_product);
+    static public String show_catalog(String type_of_product){
+        return CatalogControl.show(type_of_product);
     }
     
     static public void register_regular_user(String login, String password){

@@ -5,6 +5,7 @@
  */
 package view;
 
+import view.catalog.SelectProductForm;
 import business.control.UserControl;
 import business.control.facade.RegisterFacade;
 import business.model.exceptions.InvalidLoginException;
@@ -13,6 +14,7 @@ import business.model.users.User;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import view.product_register.SelectRegisterProductForm;
 
 /**
  *
@@ -47,6 +49,8 @@ public class Home extends javax.swing.JPanel {
         RegisterButton = new javax.swing.JButton();
         ShowCatalogsButton = new javax.swing.JButton();
         RegisterProductButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
+        LoadButton = new javax.swing.JButton();
 
         setName(""); // NOI18N
 
@@ -136,26 +140,53 @@ public class Home extends javax.swing.JPanel {
             }
         });
 
+        LogoutButton.setBackground(new java.awt.Color(204, 204, 204));
+        LogoutButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        LogoutButton.setForeground(new java.awt.Color(0, 0, 0));
+        LogoutButton.setText("Logout");
+        LogoutButton.setEnabled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+
+        LoadButton.setBackground(new java.awt.Color(204, 204, 204));
+        LoadButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        LoadButton.setForeground(new java.awt.Color(0, 0, 0));
+        LoadButton.setText("Carregar Dados");
+        LoadButton.setEnabled(false);
+        LoadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(RegisterButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(ShowCatalogsButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(RegisterProductButton))
-                    .addComponent(LoginTextField)
-                    .addComponent(PasswordTextField))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(LoginTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(PasswordTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(LoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ShowCatalogsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(RegisterProductButton)
+                                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LoadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,13 +199,18 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ShowCatalogsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegisterProductButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LoadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ShowCatalogsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RegisterProductButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -210,6 +246,9 @@ public class Home extends javax.swing.JPanel {
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
         
+        LoginTextField.setText("");
+        PasswordTextField.setText("");
+        
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
@@ -222,10 +261,14 @@ public class Home extends javax.swing.JPanel {
             user.login(login, password);
             if(user instanceof AdministratorUser){
                 RegisterProductButton.setEnabled(true);
+                LoadButton.setEnabled(true);
             }
         }catch(InvalidLoginException ile){
             JOptionPane.showMessageDialog(null, ile.getMessage());
         }
+        
+        LoginButton.setEnabled(false);
+        LogoutButton.setEnabled(true);
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void ShowCatalogsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowCatalogsButtonActionPerformed
@@ -239,13 +282,42 @@ public class Home extends javax.swing.JPanel {
 
     private void RegisterProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterProductButtonActionPerformed
         // TODO add your handling code here:
+        JFrame jf = new SelectRegisterProductForm();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
     }//GEN-LAST:event_RegisterProductButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        // TODO add your handling code here:
+        String login = LoginTextField.getText();
+        User user = RegisterFacade.get_user(login);
+        user.logout();
+        
+        if(RegisterProductButton.isEnabled())
+            RegisterProductButton.setEnabled(false);
+        
+        if(LoadButton.isEnabled())
+            LoadButton.setEnabled(false);
+        
+        LoginButton.setEnabled(true);
+        LogoutButton.setEnabled(false);
+        
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame jf = new StorageSelectionJFrame();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
+    }//GEN-LAST:event_LoadButtonActionPerformed
 
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LoadButton;
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField LoginTextField;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JPasswordField PasswordTextField;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton RegisterProductButton;

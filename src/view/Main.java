@@ -16,7 +16,7 @@ public class Main {
                 JFrame jf = new JFrame("Digital Quest");
                 jf.setContentPane(home);
                 jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(670, 430);
+                jf.setSize(620, 480);
                 jf.setVisible(true);
                 
             }

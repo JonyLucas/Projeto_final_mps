@@ -9,6 +9,10 @@ package business.model.users;
  *
  * @author Joao
  */
+/**
+ * Classe usuario administrador, faz as mesma coisas que um usario comum faz, alem de poder registrar produtos.
+ * A restricao de registrar produto é garantida na interface grafica (Olhar o codigo do JPanel Home)
+ **/
 public class AdministratorUser extends User{
     
     public AdministratorUser(String login, String password){

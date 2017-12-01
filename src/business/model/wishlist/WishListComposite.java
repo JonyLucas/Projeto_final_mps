@@ -20,7 +20,7 @@ public class WishListComposite implements WishListComponent{
 
     private User owner;
     private String name;
-    private ArrayList <WishListComponent> components;
+    private ArrayList <WishListComponent> components; // Padrao Composite
     private ArrayList <Product> desired_products;
     
     public WishListComposite(User user, String name){
@@ -69,7 +69,7 @@ public class WishListComposite implements WishListComponent{
             message += "\t" + comp.show_whishlist();
         }
         
-        System.out.println("---------------------");
+        message += ("---------------------");
         
         return message;
     }

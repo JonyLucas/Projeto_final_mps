@@ -8,15 +8,17 @@ package business.model.catalogs;
 import business.model.products.Music;
 import business.model.products.Product;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joao
  */
+/**Classe catalogo de Musica**/
 public class MusicCatalog implements ProductCatalog{
     
     private static MusicCatalog music_catalog = null;
-    private static ArrayList<Music> musics_list;
+    private static ArrayList<Music> musics_list; //Possui uma lista de produtos cadastrados
     
     private MusicCatalog(){
         musics_list = new ArrayList<Music>();
@@ -47,10 +49,13 @@ public class MusicCatalog implements ProductCatalog{
     }
     
     @Override
-    public void show(){
+    public String show(){
+        String info = "";
         for(Music music : musics_list){
-            System.out.println(music.get_info());
+            info += (music.get_info());
         }
+        //JOptionPane.showMessageDialog(null, info);
+        return info;
     }
 
     @Override

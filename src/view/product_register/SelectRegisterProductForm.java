@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.product_register;
 
 import javax.swing.JFrame;
 
@@ -11,12 +11,12 @@ import javax.swing.JFrame;
  *
  * @author Joao
  */
-public class SelectProductForm extends javax.swing.JFrame {
+public class SelectRegisterProductForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form SelectProductForm
+     * Creates new form SelectRegisterProductForm
      */
-    public SelectProductForm() {
+    public SelectRegisterProductForm() {
         initComponents();
     }
 
@@ -37,8 +37,6 @@ public class SelectProductForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(249, 249, 249));
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(249, 249, 249));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -100,7 +98,7 @@ public class SelectProductForm extends javax.swing.JFrame {
                 .addComponent(BooksButton)
                 .addGap(18, 18, 18)
                 .addComponent(MusicButton)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -110,7 +108,7 @@ public class SelectProductForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MoviesButton)
@@ -128,7 +126,7 @@ public class SelectProductForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -137,12 +135,15 @@ public class SelectProductForm extends javax.swing.JFrame {
 
     private void MoviesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoviesButtonActionPerformed
         // TODO add your handling code here:
+        JFrame jf = new MoviesRegisterForm();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MoviesButtonActionPerformed
 
     private void GamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GamesButtonActionPerformed
         // TODO add your handling code here:
-        JFrame jf = new GamesCatalogExampleJFrame();
+        JFrame jf = new GamesRegisterForm();
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
         this.dispose();
@@ -150,11 +151,18 @@ public class SelectProductForm extends javax.swing.JFrame {
 
     private void BooksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BooksButtonActionPerformed
         // TODO add your handling code here:
+        JFrame jf = new BooksRegisterForm();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_BooksButtonActionPerformed
 
     private void MusicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicButtonActionPerformed
         // TODO add your handling code here:
+        JFrame jf = new MusicRegisterForm();
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MusicButtonActionPerformed
 
@@ -175,20 +183,20 @@ public class SelectProductForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelectProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectRegisterProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelectProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectRegisterProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelectProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectRegisterProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelectProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectRegisterProductForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SelectProductForm().setVisible(true);
+                new SelectRegisterProductForm().setVisible(true);
             }
         });
     }
