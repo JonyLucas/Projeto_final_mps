@@ -6,19 +6,11 @@
 package infra.database.writer;
 
 import business.control.CatalogControl;
-import infra.database.reader.*;
-import business.control.product.factory.ProductBuilder;
 import business.model.products.Music;
-import business.model.products.Product;
-import business.model.users.User;
-import infra.Adpter.Reader;
 import infra.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author Joao
@@ -39,8 +31,6 @@ public class MusicDAOWriter implements DAOWriter{
         float price;
         int year;
         
-       
-        System.out.println(size);
         
         while(i < size-1){
             Music product = (Music) CatalogControl.get("Music", i);

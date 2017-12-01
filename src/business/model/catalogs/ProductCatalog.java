@@ -16,7 +16,7 @@ public interface ProductCatalog {
     public abstract void add(Product product);
     public abstract void remove(Product product);
     public abstract Product get(int index);
-    public abstract void show();
+    public abstract String show();
     public abstract int get_size();
     //public abstract void order_by(String type);
     

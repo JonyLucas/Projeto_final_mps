@@ -8,15 +8,17 @@ package business.model.catalogs;
 import business.model.products.Movies;
 import business.model.products.Product;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joao
  */
+/**Classe Catalogo de Filmes**/
 public class MovieCatalog implements ProductCatalog{
     
     private static MovieCatalog movie_catalog = null;
-    private static ArrayList<Movies> movies_list;
+    private static ArrayList<Movies> movies_list; //Possui uma lista de produtos cadastrados
     
     private MovieCatalog(){
         movies_list = new ArrayList<Movies>();
@@ -47,10 +49,13 @@ public class MovieCatalog implements ProductCatalog{
     }
     
     @Override
-    public void show(){
+    public String show(){
+        String info = "";
         for(Movies movie : movies_list){
-            System.out.println(movie.get_info());
+            info += (movie.get_info());
         }
+        //JOptionPane.showMessageDialog(null, info);
+        return info;
     }
     
     @Override

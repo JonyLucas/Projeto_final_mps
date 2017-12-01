@@ -11,6 +11,7 @@ import java.util.LinkedList;
  *
  * @author Joao
  */
+/**Caretaker do memento, este guarda uma lista de mementos, possibilitando desfazer qualquer comando executado**/
 public class Caretaker {
     
     static private LinkedList<Memento> saved_states = null;
@@ -29,6 +30,6 @@ public class Caretaker {
     }
     
     public void add_memento(Memento m){ saved_states.add(m); }
-    public Memento get_lastest_memento() { return saved_states.pollLast(); }
+    public Memento get_lastest_memento() { return saved_states.pollLast(); } //Pega o ultimo comando executado, permitindo desfazer a sua execucao
     
 }

@@ -17,13 +17,16 @@ import business.model.catalogs.MusicCatalog;
 import business.model.exceptions.InvalidTypeException;
 import business.model.catalogs.ProductCatalog;
 import business.model.products.*;
+import javax.swing.JOptionPane;
 
 public class CatalogControl {
     
+    /**Adiciona o produto ao catalogo de produtos**/
     public static void add(Product product) throws InvalidTypeException{
         
         ProductCatalog product_catalog;
         
+        /**Utiliza o padrao Strategy para definir em qual catalogo adicionar o produto**/
         if(product instanceof Music){
             product_catalog = MusicCatalog.get_instance();
         }else if(product instanceof Movies){
@@ -39,9 +42,11 @@ public class CatalogControl {
         product_catalog.add(product);
     }
     
+    /**Remove o produto do catalogo de produtos**/
     public static void remove(Product product) throws InvalidTypeException{
         ProductCatalog product_catalog;
         
+        /**Padrao Strategy**/
         if(product instanceof Music){
             product_catalog = MusicCatalog.get_instance();
         }else if(product instanceof Movies){
@@ -57,9 +62,12 @@ public class CatalogControl {
         product_catalog.remove(product);
     }
     
+    /**Retorna o produto de determinado catalogo e de determinado indice**/
     public static Product get(String type_of_product, int index) throws InvalidTypeException{
         
         ProductCatalog product_catalog;
+        
+        /**Padrao Strategy**/
         
         if(type_of_product.equals("Music")){
             product_catalog = MusicCatalog.get_instance();
@@ -76,7 +84,8 @@ public class CatalogControl {
         return product_catalog.get(index);
     }
     
-    public static void show(String type_of_product) throws InvalidTypeException{
+    /**Exibe o catalago de determinados tipos de produtos**/
+    public static String show(String type_of_product) throws InvalidTypeException{
         
         ProductCatalog product_catalog;
         
@@ -92,9 +101,10 @@ public class CatalogControl {
             throw new InvalidTypeException();
         }
         
-        product_catalog.show();
+        return product_catalog.show();
     }
     
+    /**Pega o tamanho do catalogo de determinado tipo de produto**/
     public static int get_size(String type_of_product) throws InvalidTypeException{
         
         ProductCatalog product_catalog;

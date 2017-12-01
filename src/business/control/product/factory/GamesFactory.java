@@ -13,8 +13,10 @@ import java.util.Scanner;
  *
  * @author Joao
  */
+/**Fabricador de Games**/
 class GamesFactory extends ProductFactory{
     
+    /**Cria o jogo usando a entrada padrao (System.in), no caso de nao ter sido passado os parametros necessarios para criar o objeto**/
     @Override
     protected Product make_type_of_product(String title, float price, int year){
         
@@ -41,6 +43,7 @@ class GamesFactory extends ProductFactory{
         
     }
     
+    /**Cria o jogo usando os arumentos fornecidos (String ... arguments)**/
     @Override
     protected Product make_type_of_product(String title, float price, int year, String... arguments) {
         

@@ -6,13 +6,10 @@
 package infra.database.writer;
 
 import business.control.UserControl;
-import infra.database.reader.*;
 import business.model.users.User;
-import infra.Adpter.Reader;
 import infra.database.Conexao;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *

@@ -6,19 +6,11 @@
 package infra.database.writer;
 
 import business.control.CatalogControl;
-import infra.database.reader.*;
-import business.control.product.factory.ProductBuilder;
 import business.model.products.Games;
-import business.model.products.Product;
-import business.model.users.User;
-import infra.Adpter.Reader;
 import infra.database.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author Joao
@@ -40,9 +32,9 @@ public class GamesDAOWriter implements DAOWriter{
         float price;
         int year;
         
-      
-        System.out.println(size);
+        //System.out.println(size);
         
+        /**Insere os dados dos produtos na query**/
         while(i < size-1){
             Games product = (Games) CatalogControl.get("Games", i);
             title = product.get_title();
@@ -52,6 +44,8 @@ public class GamesDAOWriter implements DAOWriter{
             sql += ("( '" + title + "','" + price + "','" + category + "','" + year + "'),");
             i++;
         }
+        
+        /**Insere os dados do ultimo produto na query, para terminar a query com ';' **/
         Games product = (Games) CatalogControl.get("Games", i);
         title = product.get_title();
         price = product.get_price();

@@ -15,21 +15,23 @@ public class UserControl {
     
     private static ArrayList<User> users = new ArrayList<User>();
     
+    /**Adiciona o determinado usuario na lista de usuarios cadastrados (users) **/
     public static void add_user(String type_of_user, String login, String password){
         try{
+            /**Verifica se o login ja foi usado no cadastro de outro usuario**/
             for(User user : users){
                 if(login.equals(user.get_login()))
                     throw new LoginValidationException("Login já cadastrado");
             }
-            Validator.validate_login(login);
-            Validator.validate_password(password);
+            Validator.validate_login(login); //Valida Login
+            Validator.validate_password(password); //Valida Senha
             
             User user = null;
             
             if(type_of_user.equals("Regular")){
-                user = new User(login, password);
+                user = new User(login, password); //Adiciona um usuario comum
             }else if(type_of_user.equals("Admin")){
-                user = new AdministratorUser(login, password);
+                user = new AdministratorUser(login, password); //Adiciona um usuario administrador
             }
             
             users.add(user);
@@ -40,8 +42,8 @@ public class UserControl {
 
     }
     
+    /**Remove o usuario da lista de usuarios cadastrados**/
     public static void remove_user(String login) throws UserNotExistException{
-        boolean exist = false;
         
         User user = get_user(login);
         
@@ -67,6 +69,7 @@ public class UserControl {
         
     }
     
+    /**Efetuar o login do usuario**/
     public static void login_user(String login, String password){
         try {
             User user = get_user(login);
@@ -77,8 +80,7 @@ public class UserControl {
         
     }
     
-    /**Metodos usados no teste unitario
-     * @return o**/
+    /**Metodos usados no teste unitario **/
     public static ArrayList<User> get_array_list(){
     	return users;
     }

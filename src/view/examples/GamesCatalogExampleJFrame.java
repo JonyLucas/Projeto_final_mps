@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.examples;
 
 import javax.swing.JFrame;
+import view.examples.ProductExampleForm;
 
 /**
  *

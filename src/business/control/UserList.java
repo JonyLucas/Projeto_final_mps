@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class UserList {
     
-    /**Lista os elementos de uma lista**/
+    /**Exibe o login e senha do usuario cadastrado na lista de usuarios**/
     public static String list(List<User> users, String login){ //Deve-se deixar mais generico
         String list = "";
         
@@ -31,6 +31,7 @@ public class UserList {
         
     }
     
+    /**Exibe todos os logins e senhas dos usuarios cadastrados no sistema**/
     public static String list_all(List<User> users){
         String list = "";
         

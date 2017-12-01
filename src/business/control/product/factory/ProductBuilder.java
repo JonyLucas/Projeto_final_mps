@@ -13,7 +13,6 @@ package business.control.product.factory;
 import business.model.exceptions.InvalidTypeException;
 import business.model.products.Product;
 
-/**Abstract Factory para produtos**/
 public class ProductBuilder {
     
     ProductFactory product_factory;
@@ -37,9 +36,9 @@ public class ProductBuilder {
         }
         
         if(arguments.length == 0)
-            product = product_factory.make_product();
+            product = product_factory.make_product(); //Faz a construcao do produto usando a entrada padrao (Scanner)
         else
-            product = product_factory.make_product(arguments);
+            product = product_factory.make_product(arguments); //Faz a contrucao do produto usando os argumentos fornecidos
         
         return product;
         

@@ -13,8 +13,10 @@ import java.util.Scanner;
  *
  * @author Joao
  */
+/**Fabricador de musicas**/
 class MusicFactory extends ProductFactory{
     
+    /**Cria a musica usando a entrada padrao (System.in), no caso de nao ter sido passado os parametros necessarios para criar o objeto**/
     @Override
     protected Product make_type_of_product(String title, float price, int year){
         
@@ -39,6 +41,7 @@ class MusicFactory extends ProductFactory{
         
     }
 
+    /**Cria a musica usando os argumentos fornecidos (String ... arguments)**/
     @Override
     protected Product make_type_of_product(String title, float price, int year, String... arguments) {
         

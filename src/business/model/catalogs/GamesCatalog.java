@@ -8,15 +8,17 @@ package business.model.catalogs;
 import business.model.products.Games;
 import business.model.products.Product;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joao
  */
+/**Classe catalogo de Games**/
 public class GamesCatalog implements ProductCatalog{
     
     private static GamesCatalog games_catalog = null;
-    private static ArrayList<Games> games_list;
+    private static ArrayList<Games> games_list; //Possui uma lista de produtos cadastrados
     
     private GamesCatalog(){
         games_list = new ArrayList<Games>();
@@ -47,10 +49,13 @@ public class GamesCatalog implements ProductCatalog{
     }
     
     @Override
-    public void show(){
+    public String show(){
+        String info = "";
         for(Games game : games_list){
-            System.out.println(game.get_info());
+            info += (game.get_info());
         }
+        //JOptionPane.showMessageDialog(null, info);
+        return info;
     }
     
     @Override
